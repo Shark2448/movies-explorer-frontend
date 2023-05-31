@@ -1,0 +1,64 @@
+.aboutMe {
+    width: 100%;
+    padding: 110px 70px 100px;
+    box-sizing: border-box;
+}
+
+.aboutMe__case {
+    margin: 66px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutMe__profile {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.aboutMe__name {
+    margin: 0px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    color: #FFF;
+}
+
+.aboutMe__job {
+    margin: 18px 0 0 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFF;
+    mix-blend-mode: normal;
+}
+
+.aboutMe__about {
+    margin: 26px 0 0 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFF;
+    mix-blend-mode: normal;
+}
+
+.aboutMe__git {
+    margin: 99px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFF;
+}
+
+.aboutMe__photo {
+    border-radius: 10px;
+}

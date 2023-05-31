@@ -1,0 +1,119 @@
+.aboutProject {
+    width: 100%;
+    background: #202020;
+    padding: 110px 70px;
+    box-sizing: border-box;
+}
+
+.aboutProject__case {
+    margin: 70px 0 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutProject__column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    max-width: 550px;
+}
+
+.aboutProject__column:first-child {
+    margin: 0px;
+}
+
+.aboutProject__subtitle {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #FFF;
+}
+
+.aboutProject__text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFF;
+    margin: 26px 0 0 0;
+}
+
+.aboutProject__bar {
+    margin: 110px 0 0 0;
+    display: flex;
+}
+
+.aboutProject__bar-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.aboutProject__bar-first {
+    background: #3DDC84;
+    width: 228px;
+    height: 36px;
+}
+
+.aboutProject__bar-second {
+    background: #303030;
+    width: 912px;
+    height: 36px;
+}
+
+.aboutProject__bar-text {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFF;
+}
+
+.aboutProject__bar-text:first-child {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000;
+}
+
+.aboutProject__under-bar {
+    display: flex;
+    margin: 14px 0 0 0;
+}
+
+.aboutProject__under-bar-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutProject__under-bar-first {
+    width: 228px;
+}
+
+.aboutProject__under-bar-second {
+    width: 912px;
+}
+
+.aboutProject__under-bar-text {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
+}
