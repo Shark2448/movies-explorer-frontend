@@ -69,7 +69,7 @@
 
 .aboutProject__bar-text {
     margin: 0;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -79,7 +79,7 @@
 }
 
 .aboutProject__bar-text:first-child {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -109,7 +109,7 @@
 
 .aboutProject__under-bar-text {
     margin: 0;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

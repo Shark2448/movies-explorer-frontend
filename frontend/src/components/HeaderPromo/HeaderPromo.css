@@ -1,0 +1,43 @@
+.header-promo {
+    padding: 0px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    margin: 18px 0;
+}
+
+.header-promo__links {
+    display: flex;
+    align-items: center;
+}
+
+.header__registry {
+    margin-right: 30px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    text-align: right;
+    color: #FFF;
+}
+
+.header__signin {
+    padding: 8px 20px;
+    background: #3DDC84;
+    border-radius: 3px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

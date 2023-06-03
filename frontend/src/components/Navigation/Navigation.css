@@ -1,0 +1,35 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navigation__button-profile {
+    background-image: url('../../images/profileBtn.svg');
+    background-color: #202020;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 32px;
+    width: 100px;
+    border: none;
+    margin: 0 0 0 746px;
+
+}
+
+.navigation__movies {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.navigation__movies-saved {
+    margin-left: 16px;
+    font-weight: 400;
+}
