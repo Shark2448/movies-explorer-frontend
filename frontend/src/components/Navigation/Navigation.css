@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
 }
 
 .navigation__button-profile {
@@ -32,4 +31,37 @@
 .navigation__movies-saved {
     margin-left: 16px;
     font-weight: 400;
+}
+
+.navigation__button-menu {
+    display: none;
+    background-image: url('../../images/menuBtn.svg');
+    background-color: #202020;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 44px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+    .navigation__button-menu {
+        display: block;
+    }
+
+    .navigation__button-profile {
+        display: none;
+    }
+
+    .navigation__movies {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navigation__button-menu {
+        width: 43px;
+        height: 40px;
+    }
 }

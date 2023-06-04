@@ -6,7 +6,6 @@ function SearchForm() {
     return (
         <section className='searchForm'>
             <Route path='/movies'>
-                <div className='searchForm__store'>
                 <form className='searchForm__form'>
                     <input className='searchForm__input' placeholder='Фильм'></input>
                     <button type='submit' className='searchForm__button'></button>
@@ -17,7 +16,6 @@ function SearchForm() {
                         <span className='searchForm__slider searchForm__round'></span>
                     </label>
                     <p className='searchForm__text'>Короткометражки</p>
-                </div>
                 </div>
             </Route>
 

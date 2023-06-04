@@ -12,7 +12,7 @@ function MoviesCard() {
                 <p className='card__movie-time'>27 минут</p>
             </div>
             <div className='card__movie'>
-                <img src={Film} alt='Фильм'/>
+                <img src={Film} className='card__movie' alt='Фильм'/>
             </div>
             <div className='card__under'>
                 <button id='btn' type='button' className='card__save-btn'>Сохранить</button>

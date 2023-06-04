@@ -42,11 +42,11 @@
 
 .card__under {
     display: flex;
-    padding: 18px 130px;
     justify-content: center;
 }
 
 .card__save-btn {
+    margin-top: 18px;
     height: 29px;
     width: 100px;
     background-color: #313131;
@@ -81,4 +81,40 @@
     width: 100px;
     height: 29px;
     background-color: #222222;
+}
+
+@media screen and (max-width: 1279px) {
+    .card {
+        width: 342px;
+        height: 309px;
+    }
+
+    .card__movie {
+        width: 342px;
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card {
+        width: 300px;
+        height: 271px;
+    }
+
+    .card__movie {
+        width: 300px;
+        height: 168px;
+    }
+
+    .card__upper {
+        padding: 14px;
+    }
+
+    .card__movie-title {
+        font-size: 12px;
+    }
+
+    .card__save-btn {
+        margin-top: 14px;
+    }
 }

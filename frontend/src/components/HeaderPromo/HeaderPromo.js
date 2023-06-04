@@ -9,10 +9,10 @@ function HeaderPromo() {
                 <img src={logo} className='header__logo' alt='Лого' />
             </Link>
             <div className='header-promo__links'>
-                <Link className='header__registry'>
+                <Link to='/signup' className='header__registry'>
                     Регистрация
                 </Link>
-                <Link className='header__signin'>
+                <Link to='/signin' className='header__signin'>
                     Войти
                 </Link>
             </div>

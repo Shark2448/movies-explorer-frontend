@@ -46,6 +46,7 @@
 
 .portfolio__link-img {
     position: absolute;
+    cursor: pointer;
     top: 19px;
     right: 6px;
 }
@@ -53,3 +54,47 @@
 .portfolio__link-case:last-child {
     border-bottom: none;
 }
+
+@media screen and (max-width: 1279px) {
+    .portfolio {
+        padding: 0px 50px 90px;
+    }
+
+    .portfolio__link-name {
+        font-size: 28px;
+    }
+
+    .portfolio__title {
+        color: #A0A0A0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio {
+        padding: 0 14px 70px;
+    }
+
+    .portfolio__title {
+        font-size: 14px;
+        color: #A0A0A0;
+    }
+
+    .portfolio__links {
+        margin: 40px 0 0 0;
+    }
+
+    .portfolio__link-name {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .portfolio__link-img {
+        width: 11px;
+        top: 6px;
+        right: 4px;
+    }
+
+    .portfolio__link-case {
+        border-bottom: 1px solid #E6E6E6;
+    }
+}  

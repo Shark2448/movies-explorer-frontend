@@ -24,6 +24,7 @@
     text-decoration: none;
     text-align: right;
     color: #FFF;
+    cursor: pointer;
 }
 
 .header__signin {
@@ -40,4 +41,28 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+    .header-promo {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-promo {
+        padding: 0px 14px;
+    }
+
+    .header__registry {
+        margin-right: 14px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .header__signin {
+        padding: 5px 12px;
+        font-size: 10px;
+        line-height: 16px;
+    }
 }
