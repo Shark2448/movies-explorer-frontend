@@ -6,13 +6,13 @@ function HeaderPromo() {
     return (
         <header className='header-promo'>
             <Link to='/'>
-                <img src={logo} className='header__logo' alt='Лого' />
+                <img src={logo} className='header__logo page__link' alt='Лого' />
             </Link>
             <div className='header-promo__links'>
-                <Link to='/signup' className='header__registry'>
+                <Link to='/signup' className='header__registry page__link'>
                     Регистрация
                 </Link>
-                <Link to='/signin' className='header__signin'>
+                <Link to='/signin' className='header__signin page__link'>
                     Войти
                 </Link>
             </div>

@@ -7,10 +7,10 @@ function Footer() {
             <div className='footer__case'>
                 <p className='footer__text footer__text-copyright'>© 2020</p>
                 <nav className='footer__nav'>
-                    <ul className='footer__links'>
-                        <li className='footer__link footer__text'>Яндекс.Практикум</li>
-                        <li className='footer__link footer__text'>Github</li>
-                    </ul>
+                    <nav className='footer__links'>
+                        <a href='https://practicum.yandex.ru/' className='footer__link footer__text page__link'>Яндекс.Практикум</a>
+                        <a href='https://github.com/' className='footer__link footer__text page__link'>Github</a>
+                    </nav>
                 </nav>
             </div>
         </footer>

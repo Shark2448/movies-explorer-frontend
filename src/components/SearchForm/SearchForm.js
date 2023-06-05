@@ -8,7 +8,7 @@ function SearchForm() {
             <Route path='/movies'>
                 <form className='searchForm__form'>
                     <input className='searchForm__input' placeholder='Фильм'></input>
-                    <button type='submit' className='searchForm__button'></button>
+                    <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
                     <label className='searchForm__switch'>
@@ -23,7 +23,7 @@ function SearchForm() {
             <div className='searchForm__store'>
                 <form className='searchForm__form'>
                     <input className='searchForm__input' placeholder='Фильм'></input>
-                    <button type='submit' className='searchForm__button'></button>
+                    <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
                     <label className='searchForm__switch'>

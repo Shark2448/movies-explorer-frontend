@@ -9,19 +9,19 @@ function Portfolio() {
                 <li className='portfolio__link-case'>
                     <a href='##' target='_blank' className='portfolio__link'>
                         <p className='portfolio__link-name'>Статичный сайт</p>
-                        <img src={arrow} className='portfolio__link-img' alt='стрелка'/>
+                        <img src={arrow} className='portfolio__link-img page__link' alt='стрелка'/>
                     </a>
                 </li>
                 <li className='portfolio__link-case'>
                     <a href='##' target='_blank' className='portfolio__link'>
                         <p className='portfolio__link-name'>Адаптивный сайт</p>
-                        <img src={arrow} className='portfolio__link-img' alt='стрелка'/>
+                        <img src={arrow} className='portfolio__link-img page__link' alt='стрелка'/>
                     </a>
                 </li>
                 <li className='portfolio__link-case'>
                     <a href='##' target='_blank' className='portfolio__link'>
                         <p className='portfolio__link-name'>Одностраничное приложение</p>
-                        <img src={arrow} className='portfolio__link-img' alt='стрелка'/>
+                        <img src={arrow} className='portfolio__link-img page__link' alt='стрелка'/>
                     </a>
                 </li>
             </ul>

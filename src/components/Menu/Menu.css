@@ -1,0 +1,91 @@
+.menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.menu_opened {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu__close-btn {
+    background-image: url('../../images/navCloseBtn.svg');
+    background-color: #202020;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: 22px;
+    top: 22px;
+}
+
+.menu__case {
+    position: relative;
+    width: 520px;
+    background: #202020;
+}
+
+.menu__nav {
+    padding: 159px 90px 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__nav-link {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.menu__nav-movies {
+    margin: 28px 0 0 0;
+}
+
+.menu__nav_saved-movies {
+    margin: 22px 0 0 0;
+}
+
+.menu__nav_profile-btn {
+    background-image: url('../../images/profileBtn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 32px;
+    width: 100px;
+    border: none;
+    background-color: #202020;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 621px 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+    .menu__case {
+        width: 100%;
+    }
+
+    .menu__nav {
+        padding: 144px 10px 46px;
+    }
+}

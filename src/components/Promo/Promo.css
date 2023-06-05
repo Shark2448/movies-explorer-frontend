@@ -55,6 +55,7 @@
     justify-content: center;
     color: #FFF;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .promo-nav__button:first-child {

@@ -17,8 +17,8 @@ function Profile() {
                             <p className='profile__name-title'>E-mail</p>
                             <input className='profile__name' placeholder='pochta@yandex.ru'></input>
                         </div>
-                        <button type='submit' className='profile__edit-btn'>Редактировать</button>
-                        <p className='profile__logoff-btn'>Выйти из аккаунта</p>
+                        <button type='submit' className='profile__edit-btn page__link'>Редактировать</button>
+                        <p className='profile__logoff-btn page__link'>Выйти из аккаунта</p>
                     </form>
                 </section>
             </main>

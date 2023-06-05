@@ -6,11 +6,11 @@ function Promo() {
         <section className='promo'>
             <div className='promo-hero'>
                 <h1 className='promo-hero__title'>Учебный проект студента факультета Веб-разработки.</h1>
-                <ul className='promo-nav'>
-                    <li className='promo-nav__button'>О проекте</li>
-                    <li className='promo-nav__button'>Технологии</li>
-                    <li className='promo-nav__button'>Студент</li>
-                </ul>
+                <nav className='promo-nav'>
+                    <a href='#aboutProject' className='promo-nav__button page__link'>О проекте</a>
+                    <a href='#techs' className='promo-nav__button page__link'>Технологии</a>
+                    <a href='#aboutMe' className='promo-nav__button page__link'>Студент</a>
+                </nav>
             </div>
         </section>
         </>

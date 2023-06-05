@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Pattern({ title, btnName, text, pageLink, link, children }) {
     return (
         <form className='pattern'>
-            <Link to='/' className='pattern__logo' alt='Логотип'></Link>
+            <Link to='/' className='pattern__logo page__link' alt='Логотип'></Link>
             <h2 className='pattern__title'>{title}</h2>
             {children}
             <label for='email' className='pattern__input-title'>E-mail</label>
@@ -16,7 +16,7 @@ function Pattern({ title, btnName, text, pageLink, link, children }) {
                 <button type='submit' className='pattern__btn'>{btnName}</button>
                 <div className='pattern__under-btn'>
                     <p className='pattern__text'>{text}</p>
-                    <Link to={pageLink} className='pattern__link'>{link}</Link>
+                    <Link to={pageLink} className='pattern__link page__link'>{link}</Link>
                 </div>
             </div>
         </form>

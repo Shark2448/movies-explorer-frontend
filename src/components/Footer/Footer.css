@@ -49,6 +49,7 @@
 .footer__link {
     padding-left: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .footer__link:first-child {

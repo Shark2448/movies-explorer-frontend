@@ -1,5 +1,7 @@
+import ErrorNotFound from '../ErrorNotFound/ErrorNotFound';
 import Login from '../Login/Login';
 import Main from '../Main/Main';
+import Menu from '../Menu/Menu';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
@@ -29,7 +31,11 @@ function App() {
         <Route path='/signin'>
           <Login />
         </Route>
+        <Route path='/404'>
+          <ErrorNotFound />
+        </Route>
       </Switch>
+      <Menu />
     </div>
   );
 }

@@ -15,7 +15,7 @@ function MoviesCard() {
                 <img src={Film} className='card__movie' alt='Фильм'/>
             </div>
             <div className='card__under'>
-                <button id='btn' type='button' className='card__save-btn'>Сохранить</button>
+                <button id='btn' type='button' className='card__save-btn page__link'>Сохранить</button>
             </div>
         </div>
         </Route>
@@ -30,7 +30,7 @@ function MoviesCard() {
                 <img src={Film} alt='Фильм'/>
             </div>
             <div className='card__under'>
-                <button id='btn' type='button' className='card__delete-btn'></button>
+                <button id='btn' type='button' className='card__delete-btn page__link'></button>
             </div>
         </div>
         </Route>
