@@ -11,9 +11,7 @@ function MoviesCard() {
                 <h3 className='card__movie-title'>В погоне за Бенкси</h3>
                 <p className='card__movie-time'>27 минут</p>
             </div>
-            <div className='card__movie'>
-                <img src={Film} className='card__movie' alt='Фильм'/>
-            </div>
+            <img src={Film} className='card__movie' alt='Фильм'/>
             <div className='card__under'>
                 <button id='btn' type='button' className='card__save-btn page__link'>Сохранить</button>
             </div>
@@ -26,9 +24,7 @@ function MoviesCard() {
                 <h3 className='card__movie-title'>В погоне за Бенкси</h3>
                 <p className='card__movie-time'>27 минут</p>
             </div>
-            <div className='card__movie'>
-                <img src={Film} alt='Фильм'/>
-            </div>
+            <img src={Film} className='card__movie' alt='Фильм'/>
             <div className='card__under'>
                 <button id='btn' type='button' className='card__delete-btn page__link'></button>
             </div>

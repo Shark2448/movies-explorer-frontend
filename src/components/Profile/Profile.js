@@ -1,10 +1,10 @@
 import Header from '../Header/Header';
 import './Profile.css';
 
-function Profile() {
+function Profile({ onOpen }) {
     return (
         <>
-            <Header />
+            <Header onOpen={onOpen}/>
             <main>
                 <section className='profile'>
                     <h3 className='profile__title'>Привет, Виталий!</h3>

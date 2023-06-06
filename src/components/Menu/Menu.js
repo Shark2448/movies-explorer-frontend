@@ -1,11 +1,11 @@
 import './Menu.css';
 import { Link, NavLink } from 'react-router-dom';
 
-function Menu() {
+function Menu({ isOpen, onClose }) {
     return (
-        <div className='menu'>
+        <div className={ isOpen ? `menu menu_opened` : `menu`}>
             <div className='menu__case'>
-                <button type='button' className='menu__close-btn'></button>
+                <button type='button' className='menu__close-btn' onClick={onClose}></button>
                 <div className='menu__nav'>
                     <NavLink exact to='/' className='menu__nav-link page__link'>Главная</NavLink>
                     <NavLink to='/movies' className='menu__nav-link menu__nav-movies page__link'>Фильмы</NavLink>

@@ -1,7 +1,7 @@
 import './Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
 
-function Navigation() {
+function Navigation({ onOpen }) {
     return (
         <section className='navigation'>
             <NavLink to='/movies' className='navigation__movies page__link'>Фильмы</NavLink>
@@ -9,7 +9,7 @@ function Navigation() {
             <Link to='/profile' className='navigation__button-profile page__link'>
                 <button type='button' className='navigation__button-profile page__link'></button>
             </Link>
-            <button type='button' className='navigation__button-menu page__link'></button>
+            <button type='button' className='navigation__button-menu page__link' onClick={onOpen}></button>
         </section>
     )
 }

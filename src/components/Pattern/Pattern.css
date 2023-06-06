@@ -85,6 +85,7 @@
     text-align: center;
     color: #FFF;
     cursor: pointer;
+    align-self: center;
 }
 
 .pattern__under-btn {
@@ -114,4 +115,52 @@
     color: #4285F4;
     text-decoration: none;
     text-align: center;
+}
+
+@media screen and (max-width: 1279px) {
+    .pattern {
+        padding: 232px 186px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .pattern {
+        padding: 56px 30px 30px 30px;
+    }
+
+    .pattern__logo {
+        margin: 0 0 50px 0;
+        align-self: center;
+    }
+
+    .pattern__title {
+        margin: 0 0 80px 0;
+        align-self: center;
+    }
+
+    .pattern__under {
+        margin: 267px 0 0 0;
+    }
+
+    .pattern__btn {
+        font-size: 12px;
+        line-height: 15px;
+        max-width: 260px;
+        align-self: center;
+    }
+
+    .pattern__under-btn {
+        display: flex;
+        margin: 14px 0 0 0;
+    }
+
+    .pattern__text {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .pattern__link {
+        font-size: 12px;
+        line-height: 15px;
+    }
 }

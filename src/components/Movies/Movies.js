@@ -6,10 +6,10 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import MoreMovies from '../MoreMovies/MoreMovies';
 
-function Movies() {
+function Movies({ onOpen }) {
     return (
         <>
-        <Header />
+        <Header onOpen={onOpen}/>
         <main>
             <SearchForm />
             <MoviesCardList />

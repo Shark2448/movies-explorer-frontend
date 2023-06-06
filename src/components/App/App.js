@@ -8,22 +8,34 @@ import Register from '../Register/Register';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const [isMenu, setIsMenu] = useState(false);
+
+  function openMenu() {
+    setIsMenu(true)
+  }
+
+  function closeMenu() {
+    setIsMenu(false)
+  }
+
+
   return (
     <div className="page">
       <Switch>
         <Route exact path='/'>
-          <Main />
+          <Main onOpen={openMenu}/>
         </Route>
         <Route path='/movies'>
-          <Movies />
+          <Movies onOpen={openMenu}/>
         </Route>
         <Route path='/saved-movies'>
-          <SavedMovies />
+          <SavedMovies onOpen={openMenu}/>
         </Route>
         <Route path='/profile'>
-          <Profile />
+          <Profile  onOpen={openMenu}/>
         </Route>
         <Route path='/signup'>
           <Register />
@@ -35,7 +47,7 @@ function App() {
           <ErrorNotFound />
         </Route>
       </Switch>
-      <Menu />
+      <Menu isOpen={isMenu} onClose={closeMenu}/>
     </div>
   );
 }
