@@ -43,6 +43,10 @@
     .error-not-found__code {
         margin: 408px 0 0 0;
     }
+
+    .error-not-found__back-btn {
+        margin-bottom: 222px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -59,7 +63,7 @@
     }
 
     .error-not-found__back-btn {
-        margin: 284px 0 0 0;
+        margin: 284px 0 30px 0;
         font-size: 12px;
         line-height: 15px;
     }
