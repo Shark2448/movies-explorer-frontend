@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.header__logo {
+.header-promo__logo {
     margin: 18px 0;
 }
 
@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.header__registry {
+.header-promo__registry {
     margin-right: 30px;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.header__signin {
+.header-promo__signin {
     padding: 8px 20px;
     background: #3DDC84;
     border-radius: 3px;
