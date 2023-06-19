@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import Pattern from '../Pattern/Pattern';
 import './Login.css';
+import { useFormValidation } from '../FormValidation.js/FormValidation';
 
-function Login({ authorization, useFormValidation, submitError, textError }) {
+function Login({ authorization, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {

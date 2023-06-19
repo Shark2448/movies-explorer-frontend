@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import Pattern from '../Pattern/Pattern';
 import './Register.css';
+import { useFormValidation } from '../FormValidation.js/FormValidation';
 
-function Register({ useFormValidation, registration, submitError, textError }) {
+function Register({ registration, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {

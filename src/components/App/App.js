@@ -11,7 +11,7 @@ import { mainApi } from '../../utils/MainApi';
 import { moviesApi } from '../../utils/MoviesApi';
 import './App.css';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProtectedRouteAuth from '../ProtectedRoute/ProtectedRouteAuth';
@@ -47,40 +47,7 @@ function App() {
   let localSearching = localStorage.getItem('localSearching')
   let valueSearchMovies = localStorage.getItem('searchMovies');
   let valueSearchUserMovies = localStorage.getItem('searchUserMovies');
-  let filterMovie = localStorage.getItem('filterMovie');
-
-  function useFormValidation() {
-    const [isValid, setIsValid] = useState(false)
-    const [isEmailValid, setIsEmailValid] = useState(false)
-    const [errors, setErrors] = useState({})
-    const [values, setValues] = useState({})
-
-    const handleChangeValues = (e) => {
-      const regex = /(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)/
-      const target = e.target
-      const name = target.name
-      const value = target.value
-      
-      setValues({ ...values, [name]: value })
-      setErrors({ ...errors, [name]: target.validationMessage })
-      setIsValid(target.closest('form').checkValidity())
-      if (regex.test(values.email)) {
-        setIsEmailValid(true)
-      } else {
-        setIsEmailValid(false)
-      }
-    }
-
-    const resetFormValues = useCallback(
-      (newValues = {}, newErrors = {}, newIsValid = false) => {
-        setValues(newValues)
-        setErrors(newErrors)
-        setIsValid(newIsValid)
-      },
-      [setValues, setErrors, setIsValid]
-    )
-    return { values, errors, isValid, isEmailValid, setValues, resetFormValues, handleChangeValues }
-  } 
+  let filterMovie = localStorage.getItem('filterMovie'); 
   
   function openMenu() {
     setIsMenu(true)
@@ -372,9 +339,9 @@ function App() {
             searchUserMovies={searchUserMovies}
             useFilterMovies={useFilterUserMovies}
             />
-          <ProtectedRoute path='/profile' component={Profile} loggedIn={login} onOpen={openMenu} leave={leave} changeUserInfo={changeUserInfo} useFormValidation={useFormValidation} />
-          <ProtectedRouteAuth path='/signup' component={Register} loggedIn={login} registration={registration} useFormValidation={useFormValidation} textError={textError} submitError={errorRegistry} />
-          <ProtectedRouteAuth path='/signin' component={Login} loggedIn={login} authorization={authorization} useFormValidation={useFormValidation} textError={textError} submitError={errorLogin} />
+          <ProtectedRoute path='/profile' component={Profile} loggedIn={login} onOpen={openMenu} leave={leave} changeUserInfo={changeUserInfo} />
+          <ProtectedRouteAuth path='/signup' component={Register} loggedIn={login} registration={registration} textError={textError} submitError={errorRegistry} />
+          <ProtectedRouteAuth path='/signin' component={Login} loggedIn={login} authorization={authorization} textError={textError} submitError={errorLogin} />
           <Route>
             <ErrorNotFound />
           </Route>
