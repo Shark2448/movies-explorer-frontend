@@ -6,13 +6,37 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import MoreMovies from '../MoreMovies/MoreMovies';
 
-function Movies({ onOpen }) {
+function Movies({
+    onOpen,
+    movies,
+    saveMovie,
+    deleteMovie,
+    searchMovies,
+    useFormValidation,
+    useFilterMovies,
+    isLoading,
+     }) {
+        function handleMoviesList() {
+            return (
+                <>
+                <MoviesCardList 
+                movies={movies}
+                saveMovie={saveMovie} 
+                deleteMovie={deleteMovie}
+                searchMovies={searchMovies}
+                useFormValidation={useFormValidation}
+                useFilterMovies={useFilterMovies}
+                isLoading={isLoading} />
+                </>
+            )
+        }
+    
     return (
         <>
         <Header onOpen={onOpen}/>
         <main>
-            <SearchForm />
-            <MoviesCardList />
+            <SearchForm useFilterMovies={useFilterMovies} useFormValidation={useFormValidation} searchMovies={searchMovies} />
+            {isLoading ? <Preloader /> : handleMoviesList()}
             <MoreMovies />
         </main>
         <Footer />

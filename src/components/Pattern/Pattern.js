@@ -1,9 +1,9 @@
 import './Pattern.css';
 import { Link } from 'react-router-dom';
 
-function Pattern({ title, btnName, text, pageLink, link, children }) {
+function Pattern({ title, btnName, text, pageLink, link, children, isValid, errors, handleChangeValues, handleSubmit }) {
     return (
-        <form className='pattern'>
+        <form className='pattern' onSubmit={handleSubmit} onChange={handleChangeValues}>
             <Link to='/' className='pattern__logo page__link' alt='Логотип'></Link>
             <h2 className='pattern__title'>{title}</h2>
             {children}

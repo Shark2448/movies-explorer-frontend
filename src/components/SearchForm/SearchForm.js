@@ -2,16 +2,41 @@ import './SearchForm.css';
 import { Route } from 'react-router-dom';
 
 
-function SearchForm() {
+function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormValidation }) {
+    const { values, handleChangeValues } = useFormValidation()
+
+    let valueSearchMovies = localStorage.getItem('searchMovies');
+    let filteredMovie = localStorage.getItem('filterMovie')
+
+    function handleSubmitMovies(e) {
+        e.preventDefault()
+        if(e.target.closest('form').checkValidity()) {
+            searchMovies(values)
+            localStorage.setItem('searchMovies', values.search)
+        } else {
+            return
+        }
+    }
+
+    function handleSubmitUserMovies(e) {
+        e.preventDefault()
+        if(e.target.closest('form').checkValidity()) {
+            searchUserMovies(values)
+            localStorage.setItem('searchUserMovies', values.search)
+        } else {
+            return
+        }
+    }
+
     return (
         <section className='searchForm'>
             <Route path='/movies'>
-                <form className='searchForm__form'>
-                    <input className='searchForm__input' placeholder='Фильм'></input>
+                <form className='searchForm__form' onSubmit={handleSubmitMovies} onChange={handleChangeValues}>
+                    <input className='searchForm__input' placeholder='Фильм' defaultValue={valueSearchMovies || ''} required></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
-                    <label className='searchForm__switch'>
+                    <label className='searchForm__switch' onChange={useFilterMovies} defaultChecked={filteredMovie === 'true' ? true : false}>
                         <input type='checkbox' className='searchForm__checkbox searchForm__checkbox-input'></input>
                         <span className='searchForm__slider searchForm__round'></span>
                     </label>
@@ -20,12 +45,12 @@ function SearchForm() {
             </Route>
 
             <Route path='/saved-movies'>
-            <form className='searchForm__form'>
+            <form className='searchForm__form' onSubmit={handleSubmitUserMovies} onChange={handleChangeValues}>
                     <input className='searchForm__input' placeholder='Фильм'></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
-                    <label className='searchForm__switch'>
+                    <label className='searchForm__switch' onChange={useFilterMovies}>
                         <input type='checkbox' className='searchForm__checkbox searchForm__checkbox-input'></input>
                         <span className='searchForm__slider searchForm__round'></span>
                     </label>
