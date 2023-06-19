@@ -20,6 +20,10 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
         }
     }
 
+    const cardSaveBtnClassName = `card__save-btn page__link ${
+        isLiked ? 'card__save-btn_active' : ' '
+    }`
+
     return (
         <>
         <Route path='/movies'>
@@ -28,9 +32,11 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
                 <h3 className='card__movie-title'>{movie.nameRU}</h3>
                 <p className='card__movie-time'>{movie.duration}</p>
             </div>
-            <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__movie' alt='Фильм'/>
+            <a href={movie.trailerLink} target='_blank' rel='noreferrer'>
+                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__movie' alt='Фильм'/>
+            </a>
             <div className='card__under'>
-                <button id='btn' type='button' className='card__save-btn page__link' onClick={handleLikeClick}>Сохранить</button>
+                <button id='btn' type='button' className={cardSaveBtnClassName} onClick={handleLikeClick}>Сохранить</button>
             </div>
         </div>
         </Route>

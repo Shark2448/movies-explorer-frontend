@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-.card__save-btn:active {
+.card__save-btn_active {
     height: 29px;
     width: 100px;
     background: #EE3465;

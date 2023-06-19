@@ -32,6 +32,9 @@ function App() {
   const [filteredUserMovies, setFilteredUserMovies] = useState(false);
   const [searchError, setSearchError] = useState(false);
   const [notFoundError, setNotFoundError] = useState(false);
+  const [errorRegistry , setErrorRegistry] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(false);
+  const [textError, setTextError] = useState('');
 
   const filteredMoviesFalse = false;
   const filteredMoviesTrue = true;
@@ -91,9 +94,21 @@ function App() {
     mainApi.register(email, password, name)
     .then(() => {
       authorization(email, password)
+      setTextError('')
+      setErrorRegistry(false)
     })
     .catch((err) => {
       console.log(err)
+      setErrorRegistry(true)
+      if (err === 'Ошибка 400') {
+        setTextError('Введены некорректные данные')
+      }
+      if (err === 'Ошибка 409') {
+        setTextError('Данный email уже существует')
+      }
+      if (err === 'Ошибка 500') {
+        setTextError('Произошла ошибка на сервере')
+      }
     })
   }
 
@@ -107,10 +122,22 @@ function App() {
     })
     .then(() => {
       setLoggedIn(true);
+      setTextError('')
+      setErrorLogin(false)
       history.pushState('/movies')
     })
     .catch((err) => {
       console.log(err)
+      setErrorLogin(true)
+      if (err === 'Ошибка 400') {
+        setTextError('Введены некорректные данные')
+      }
+      if (err === 'Ошибка 401') {
+        setTextError('Введены некорректные email или пароль')
+      }
+      if (err === 'Ошибка 500') {
+        setTextError('Произошла ошибка на сервере')
+      }
     })
   }
 
@@ -318,7 +345,7 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Route exact path='/'>
-            <Main onOpen={openMenu}/>
+            <Main loggedIn={loggedIn} onOpen={openMenu}/>
           </Route>
           <ProtectedRoute path='/movies'
             component={Movies}
@@ -346,8 +373,8 @@ function App() {
             useFilterMovies={useFilterUserMovies}
             />
           <ProtectedRoute path='/profile' component={Profile} loggedIn={login} onOpen={openMenu} leave={leave} changeUserInfo={changeUserInfo} useFormValidation={useFormValidation} />
-          <ProtectedRouteAuth path='/signup' component={Register} loggedIn={login} registration={registration} useFormValidation={useFormValidation} />
-          <ProtectedRouteAuth path='/signin' component={Login} loggedIn={login} authorization={authorization} useFormValidation={useFormValidation} />
+          <ProtectedRouteAuth path='/signup' component={Register} loggedIn={login} registration={registration} useFormValidation={useFormValidation} textError={textError} submitError={errorRegistry} />
+          <ProtectedRouteAuth path='/signin' component={Login} loggedIn={login} authorization={authorization} useFormValidation={useFormValidation} textError={textError} submitError={errorLogin} />
           <Route>
             <ErrorNotFound />
           </Route>

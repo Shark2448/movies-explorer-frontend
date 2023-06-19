@@ -37,7 +37,7 @@ function Movies({
         <main>
             <SearchForm useFilterMovies={useFilterMovies} useFormValidation={useFormValidation} searchMovies={searchMovies} />
             {isLoading ? <Preloader /> : handleMoviesList()}
-            <MoreMovies />
+            <MoreMovies movies={movies}/>
         </main>
         <Footer />
         </>

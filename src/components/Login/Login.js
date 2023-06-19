@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Pattern from '../Pattern/Pattern';
 import './Login.css';
 
-function Login({ authorization, useFormValidation }) {
+function Login({ authorization, useFormValidation, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {
@@ -26,7 +26,9 @@ function Login({ authorization, useFormValidation }) {
         handleChangeValues={handleChangeValues} 
         isValid={isValid}
         isEmailValid={isEmailValid}
-        errors={errors} />
+        errors={errors}
+        submitError={submitError}
+        textError={textError} />
     )
 }
 

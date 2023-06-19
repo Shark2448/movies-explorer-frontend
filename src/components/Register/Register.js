@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Pattern from '../Pattern/Pattern';
 import './Register.css';
 
-function Register({ useFormValidation, registration }) {
+function Register({ useFormValidation, registration, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {
@@ -26,7 +26,9 @@ function Register({ useFormValidation, registration }) {
         handleChangeValues={handleChangeValues}
         errors={errors}
         isValid={isValid}
-        isEmailValid={isEmailValid} >
+        isEmailValid={isEmailValid}
+        submitError={submitError}
+        textError={textError} >
             <label for='name' className='pattern__input-title'>Имя</label>
             <input className='pattern__input pattern__border' placeholder='Виталий' required></input>
         </Pattern>

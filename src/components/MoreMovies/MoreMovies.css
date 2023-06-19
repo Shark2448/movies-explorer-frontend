@@ -14,3 +14,7 @@
     border: none;
     cursor: pointer;
 }
+
+.more-movies__btn_disabled {
+    visibility: hidden;
+}
