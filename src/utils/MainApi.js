@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.lovemovies.nomoredomains.rocks";
 
 class MainApi {
     constructor({ url, headers }) {
@@ -114,7 +114,7 @@ class MainApi {
 const token = localStorage.getItem('token');
 
 export const mainApi = new MainApi({
-    url: "http://localhost:3000",
+    url: "https://api.lovemovies.nomoredomains.rocks",
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
