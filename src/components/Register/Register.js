@@ -8,7 +8,7 @@ function Register({ registration, submitError, textError }) {
 
     useEffect(() => {
         resetFormValues()
-    }, [])
+    }, [resetFormValues])
 
     const handleSubmit = (e) => {
         e.preventDefault()

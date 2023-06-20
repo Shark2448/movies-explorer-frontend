@@ -45,13 +45,13 @@ class MainApi {
 
     getUserContent() {
         return fetch(`${BASE_URL}/users/me`, {
-            headers: this._headers,
+            headers: {...this._headers, Authorization: `Bearer ${token}`},
         }).then(this._handleRes);
     }
 
-    getUserMovies() {
+    getUserMovies(token) {
         return fetch(this._url + `/movies`, {
-            headers: this._headers,
+            headers: {...this._headers, Authorization: `Bearer ${token}`},
         }).then(this._handleRes);
     }
 
@@ -74,7 +74,7 @@ class MainApi {
                description: movie.description,
                image: movie.image.url,
                trailerLink: movie.trailerLink,
-               thumbnail: movie.image.thumbnail.url,
+               thumbnail: movie.image.formats.thumbnail.url,
                movieId: movie.id,
                nameRU: movie.nameRU,
                nameEN: movie.nameEN, 

@@ -1,8 +1,9 @@
 import './SearchForm.css';
 import { Route } from 'react-router-dom';
+import { useFormValidation } from '../FormValidation.js/FormValidation';
 
 
-function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormValidation }) {
+function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
     const { values, handleChangeValues } = useFormValidation()
 
     let valueSearchMovies = localStorage.getItem('searchMovies');
@@ -10,7 +11,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormVa
 
     function handleSubmitMovies(e) {
         e.preventDefault()
-        if(e.target.closest('form').checkValidity()) {
+        if (e.target.closest('form').checkValidity()) {
             searchMovies(values)
             localStorage.setItem('searchMovies', values.search)
         } else {
@@ -20,7 +21,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormVa
 
     function handleSubmitUserMovies(e) {
         e.preventDefault()
-        if(e.target.closest('form').checkValidity()) {
+        if (e.target.closest('form').checkValidity()) {
             searchUserMovies(values)
             localStorage.setItem('searchUserMovies', values.search)
         } else {
@@ -31,7 +32,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormVa
     return (
         <section className='searchForm'>
             <Route path='/movies'>
-                <form className='searchForm__form' onSubmit={handleSubmitMovies} onChange={handleChangeValues}>
+                <form className='searchForm__form' onSubmit={handleSubmitMovies} onChange={handleChangeValues} noValidate>
                     <input className='searchForm__input' placeholder='Фильм' defaultValue={valueSearchMovies || ''} required></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
@@ -45,8 +46,8 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies, useFormVa
             </Route>
 
             <Route path='/saved-movies'>
-            <form className='searchForm__form' onSubmit={handleSubmitUserMovies} onChange={handleChangeValues}>
-                    <input className='searchForm__input' placeholder='Фильм'></input>
+            <form className='searchForm__form' onSubmit={handleSubmitUserMovies} onChange={handleChangeValues} noValidate>
+                    <input className='searchForm__input' placeholder='Фильм' required></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>

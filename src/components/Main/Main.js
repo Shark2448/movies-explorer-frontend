@@ -7,19 +7,21 @@ import Portfolio from '../Portfolio/Portfolio';
 import Promo from '../Promo/Promo';
 import Techs from '../Techs/Techs';
 
-function Main({ login, onOpen }) {
-    if (login) {
-        <>
-        <Header onOpen={onOpen}/>
-        <main className='content'>
-            <Promo />
-            <AboutProject />
-            <Techs />
-            <AboutMe />
-            <Portfolio />
-        </main>
-        <Footer />
-        </>
+function Main({ loggedIn, onOpen }) {
+    if (loggedIn) {
+        return(
+            <>
+            <Header onOpen={onOpen}/>
+            <main className='content'>
+                <Promo />
+                <AboutProject />
+                <Techs />
+                <AboutMe />
+                <Portfolio />
+            </main>
+            <Footer />
+            </>
+        )
     } else {
     return (
         <>

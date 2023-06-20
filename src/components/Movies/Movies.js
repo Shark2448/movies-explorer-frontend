@@ -9,10 +9,10 @@ import MoreMovies from '../MoreMovies/MoreMovies';
 function Movies({
     onOpen,
     movies,
+    userMovies,
     saveMovie,
     deleteMovie,
     searchMovies,
-    useFormValidation,
     useFilterMovies,
     isLoading,
      }) {
@@ -21,10 +21,10 @@ function Movies({
                 <>
                 <MoviesCardList 
                 movies={movies}
+                userMovies={userMovies}
                 saveMovie={saveMovie} 
                 deleteMovie={deleteMovie}
                 searchMovies={searchMovies}
-                useFormValidation={useFormValidation}
                 useFilterMovies={useFilterMovies}
                 isLoading={isLoading} />
                 </>
@@ -35,7 +35,7 @@ function Movies({
         <>
         <Header onOpen={onOpen}/>
         <main>
-            <SearchForm useFilterMovies={useFilterMovies} useFormValidation={useFormValidation} searchMovies={searchMovies} />
+            <SearchForm useFilterMovies={useFilterMovies} searchMovies={searchMovies} />
             {isLoading ? <Preloader /> : handleMoviesList()}
             <MoreMovies movies={movies}/>
         </main>

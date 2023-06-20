@@ -14,17 +14,19 @@ function MoreMovies({ movies }) {
     const [isAmountOfMovies, setIsAmountOfMovies] = useState(amountOfMovies);
     const [needMoreMovies, setNeedMoreMovies] = useState(false)
 
-    function resize() {
-        if (screenWidth >= 1280) {setIsAmountOfMovies(isAmountOfMovies + 3)}
-        if (screenWidth >= 768 && screenWidth < 1279) {setIsAmountOfMovies(isAmountOfMovies + 2)}
-        if (screenWidth <= 767) {setIsAmountOfMovies(isAmountOfMovies + 5)}
-        if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)}
-    }
+    
 
     useEffect(() => {
+        function resize() {
+            if (screenWidth >= 1280) {setIsAmountOfMovies(isAmountOfMovies + 3)}
+            if (screenWidth >= 768 && screenWidth < 1279) {setIsAmountOfMovies(isAmountOfMovies + 2)}
+            if (screenWidth <= 767) {setIsAmountOfMovies(isAmountOfMovies + 5)}
+            if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)}
+        }
+
         if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)} else {setNeedMoreMovies(false)}
         window.onresize = resize
-    })
+    }, [isAmountOfMovies, moviesLength, screenWidth])
 
     function handleClickMoreMovies() {
         if (screenWidth >= 1280) { amountOfMovies = 12 };

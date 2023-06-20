@@ -156,9 +156,10 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
+      const token = localStorage.getItem('token')
       localStorage.setItem('searchUserMovies', ' ')
       setIsLoading(true)
-      mainApi.getUserMovies()
+      mainApi.getUserMovies(token)
       .then((res) => {
         setUserMovies(res)
       })
@@ -182,7 +183,7 @@ function App() {
       setCurrentMovies(localMovies)
       if (movies.length === 0 && localSearching !== null) {setNotFoundError(true)} else {setNotFoundError(false)}
     }
-  }, [movies])
+  }, [movies, localMovies, localSearching])
 
   function useFilterMovies() {
     setFilteredMovies(!filteredMovies)
@@ -238,7 +239,6 @@ function App() {
     setIsLoading(true)
     moviesApi.getMovies()
     .then((movies) => {
-      console.log(movies)
       localStorage.setItem('localSearch', firstLocalSearch)
       localStorage.setItem('movieList', JSON.stringify(movies))
       localStorage.setItem('filterMovie', filteredMovies)
