@@ -31,7 +31,7 @@ function Register({ registration, submitError, textError }) {
         submitError={submitError}
         textError={textError} >
             <label for='name' className='pattern__input-title'>Имя</label>
-            <input className='pattern__input pattern__border' placeholder='Виталий' required></input>
+            <input name='name' className='pattern__input pattern__border' placeholder='Виталий' required></input>
         </Pattern>
     )
 }

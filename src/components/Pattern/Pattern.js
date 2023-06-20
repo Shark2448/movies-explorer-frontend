@@ -13,9 +13,9 @@ function Pattern({ title, btnName, text, pageLink, link, children, isValid, erro
             <h2 className='pattern__title'>{title}</h2>
             {children}
             <label for='email' className='pattern__input-title'>E-mail</label>
-            <input type='email' className={emailInputClassName} placeholder='pochta@yandex.ru' minLength='2' required></input>
+            <input type='email' name='email' className={emailInputClassName} placeholder='pochta@yandex.ru' minLength='2' required></input>
             <label for='password' className='pattern__input-title'>Пароль</label>
-            <input type='password' className={passwordInputClassName} minLength='2' maxLength='30' required></input>
+            <input type='password' name='password' className={passwordInputClassName} minLength='2' maxLength='30' required></input>
             <span className={errorClassName}>Что то пошло не так...</span>
             <div className='pattern__under'>
                 <button type='submit' className={btnClassName} disabled={isValid ? false : true} >{btnName}</button>
