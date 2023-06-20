@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3001";
+export const BASE_URL = "http://localhost:3000";
 
 class MainApi {
     constructor({ url, headers }) {
@@ -114,7 +114,7 @@ class MainApi {
 const token = localStorage.getItem('token');
 
 export const mainApi = new MainApi({
-    url: "http://localhost:3001",
+    url: "http://localhost:3000",
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
