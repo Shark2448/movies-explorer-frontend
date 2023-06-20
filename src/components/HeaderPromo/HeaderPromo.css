@@ -1,0 +1,68 @@
+.header-promo {
+    padding: 0px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-promo__logo {
+    margin: 18px 0;
+}
+
+.header-promo__links {
+    display: flex;
+    align-items: center;
+}
+
+.header-promo__registry {
+    margin-right: 30px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    text-align: right;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.header-promo__signin {
+    padding: 8px 20px;
+    background: #3DDC84;
+    border-radius: 3px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+    .header-promo {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-promo {
+        padding: 0px 14px;
+    }
+
+    .header__registry {
+        margin-right: 14px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .header__signin {
+        padding: 5px 12px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+}

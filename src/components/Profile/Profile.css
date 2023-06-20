@@ -1,0 +1,126 @@
+.profile {
+    padding: 74px 435px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__title {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFF;
+}
+
+.profile__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__case-name {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    width: 410px;
+    margin: 123px 0 0 0;
+    border-bottom: 1px solid #424242;
+}
+
+.profile__name-title {
+    margin: 0px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    color: #FFF;
+}
+
+.profile__name {
+    position: absolute;
+    right: 1px;
+    margin: 0;
+    max-width: 122px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: end;
+    color: #FFF;
+    background-color: #202020;
+    outline: none;
+    border: none;
+}
+
+.profile__case-email {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 410px;
+    margin: 17px 0 0 0;
+}
+
+.profile__edit-btn {
+    margin: 220px 0 0 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #202020;
+    color: #FFF;
+}
+
+.profile__logoff-btn {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #EE3465;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile {
+        padding: 236px 179px 269px;
+    }
+
+    .profile__case-name {
+        margin: 96px 0 0 0;
+    }
+
+    .profile__edit-btn {
+        margin: 210px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile {
+        padding: 70px 30px 40px;
+    }
+
+    .profile__case-name {
+        margin: 80px 0 0 0;
+        max-width: 260px;
+    }
+
+    .profile__case-email {
+        max-width: 260px;
+    }
+
+    .profile__edit-btn {
+        margin: 379px 0 0 0;
+    }
+}

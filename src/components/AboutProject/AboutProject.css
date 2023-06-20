@@ -1,0 +1,217 @@
+.aboutProject {
+    width: 100%;
+    background: #202020;
+    padding: 110px 70px;
+    box-sizing: border-box;
+}
+
+.aboutProject__case {
+    margin: 70px 0 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutProject__column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    max-width: 550px;
+}
+
+.aboutProject__column:first-child {
+    margin: 0px;
+}
+
+.aboutProject__subtitle {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #FFF;
+}
+
+.aboutProject__text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFF;
+    margin: 26px 0 0 0;
+}
+
+.aboutProject__bar {
+    margin: 110px 0 0 0;
+    display: flex;
+}
+
+.aboutProject__bar-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.aboutProject__bar-first {
+    background: #3DDC84;
+    width: 228px;
+    height: 36px;
+}
+
+.aboutProject__bar-second {
+    background: #303030;
+    width: 912px;
+    height: 36px;
+}
+
+.aboutProject__bar-text {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFF;
+}
+
+.aboutProject__bar-text:first-child {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000;
+}
+
+.aboutProject__under-bar {
+    display: flex;
+    margin: 14px 0 0 0;
+}
+
+.aboutProject__under-bar-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutProject__under-bar-first {
+    width: 228px;
+}
+
+.aboutProject__under-bar-second {
+    width: 912px;
+}
+
+.aboutProject__under-bar-text {
+    margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+@media screen and (max-width: 1279px) {
+    .aboutProject {
+        padding: 90px 50px;
+    }
+
+    .aboutProject__column {
+        margin: 0 0 0 30px;
+    }
+
+    .aboutProject__text {
+        margin: 22px 0 0 0;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutProject__bar {
+        margin: 93px 0 0 0;
+    }
+
+    .aboutProject__bar-first {
+        min-width: 140px;
+    }
+
+    .aboutProject__bar-second {
+        min-width: 528px;
+    }
+
+    .aboutProject__under-bar-first {
+        min-width: 140px;
+    }
+
+    .aboutProject__under-bar-second {
+        min-width: 528px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .aboutProject {
+        padding: 70px 18px;
+    }
+
+    .aboutProject__case {
+        margin: 60px 0 0 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aboutProject__subtitle {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .aboutProject__text {
+        margin: 16px 0 0 0;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__column {
+        margin: 0px;
+    }
+
+    .aboutProject__column:first-child {
+        margin: 0 0 56px 0;
+    }
+
+    .aboutProject__bar {
+        margin: 60px 0 0 0;
+    }
+
+    .aboutProject__bar-first {
+        max-width: 100%;
+        min-width: 100px;
+        height: 35px;
+    }
+
+    .aboutProject__bar-second {
+        max-width: 100%;
+        min-width: 184px;
+        height: 35px;
+    }
+
+    .aboutProject__bar-text {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .aboutProject__under-bar-first {
+        max-width: 100%;
+        min-width: 100px;
+    }
+
+    .aboutProject__under-bar-second {
+        max-width: 100%;
+        min-width: 184px;
+    }
+}

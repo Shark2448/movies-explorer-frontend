@@ -1,0 +1,30 @@
+.content {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__subtitle {
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #DADADA;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    color: #FFF;
+}
+
+@media screen and (max-width: 767px) {
+    .main__subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 28px;
+    }
+}
