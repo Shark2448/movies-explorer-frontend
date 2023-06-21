@@ -15,6 +15,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProtectedRouteAuth from '../ProtectedRoute/ProtectedRouteAuth';
+import { 
+  filteredMoviesFalse,
+  filteredMoviesTrue,
+  firstLocalSearch,
+  localMovies,
+  moviesList,
+  login,
+  localSearch,
+  localSearching,
+  valueSearchMovies,
+  valueSearchUserMovies,
+  filterMovie,
+ } from '../../constants/constants'
 
 function App() {
   const history = useHistory();
@@ -34,20 +47,7 @@ function App() {
   const [notFoundError, setNotFoundError] = useState(false);
   const [errorRegistry , setErrorRegistry] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
-  const [textError, setTextError] = useState('');
-
-  const filteredMoviesFalse = false;
-  const filteredMoviesTrue = true;
-  const firstLocalSearch = true; 
-
-  let localMovies = JSON.parse(localStorage.getItem('movies'));
-  let moviesList = JSON.parse(localStorage.getItem('movieList'));
-  let login = localStorage.getItem('loggedIn');
-  let localSearch = localStorage.getItem('localSearch');
-  let localSearching = localStorage.getItem('localSearching')
-  let valueSearchMovies = localStorage.getItem('searchMovies');
-  let valueSearchUserMovies = localStorage.getItem('searchUserMovies');
-  let filterMovie = localStorage.getItem('filterMovie'); 
+  const [textError, setTextError] = useState(''); 
   
   function openMenu() {
     setIsMenu(true)

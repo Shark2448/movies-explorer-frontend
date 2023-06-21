@@ -51,7 +51,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
-                    <label className='searchForm__switch' onChange={useFilterMovies}>
+                    <label className='searchForm__switch' onChange={useFilterMovies} defaultChecked={filteredMovie === 'true' ? true : false}>
                         <input type='checkbox' className='searchForm__checkbox searchForm__checkbox-input'></input>
                         <span className='searchForm__slider searchForm__round'></span>
                     </label>

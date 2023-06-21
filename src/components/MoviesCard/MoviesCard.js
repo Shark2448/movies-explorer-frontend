@@ -27,7 +27,6 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
     const cardSaveBtnClassName = `card__save-btn page__link ${
         isLiked ? 'card__save-btn_active' : ' '
     }`
-
     
     const image = typeof movie.image === 'string' ? movie.image : movie.image.url
 
