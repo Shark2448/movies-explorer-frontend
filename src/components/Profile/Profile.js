@@ -7,7 +7,7 @@ import { useFormValidation } from '../FormValidation.js/FormValidation';
 function Profile({ onOpen, leave, changeUserInfo }) {
     const user = React.useContext(CurrentUserContext)
     
-    const { handlechangeValues, isValid, resetFormValues } = useFormValidation()
+    const { handleChangeValues, isValid, resetFormValues } = useFormValidation()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [validName, setValidName] = useState(false)
@@ -59,7 +59,7 @@ function Profile({ onOpen, leave, changeUserInfo }) {
             <main>
                 <section className='profile'>
                     <h3 className='profile__title'>Привет, {user.name}!</h3>
-                    <form className='profile__form' onChange={handlechangeValues} onSubmit={handleSubmit}>
+                    <form className='profile__form' onChange={handleChangeValues} onSubmit={handleSubmit}>
                         <div className='profile__case-name'>
                             <p className='profile__name-title'>Имя</p>
                             <input name='name' className='profile__name' value={name || ''} onChange={handleChangeName} minLength='2' maxLength='30' placeholder='Виталий' required></input>

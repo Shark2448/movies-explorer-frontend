@@ -28,6 +28,9 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
         isLiked ? 'card__save-btn_active' : ' '
     }`
 
+    
+    const image = typeof movie.image === 'string' ? movie.image : movie.image.url
+
     return (
         <>
         <Route path='/movies'>
@@ -37,7 +40,7 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
                 <p className='card__movie-time'>{timeOnCard(movie.duration)}</p>
             </div>
             <a href={movie.trailerLink} target='_blank' rel='noreferrer'>
-                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__img' alt='Фильм'/>
+                <img src={'https://api.nomoreparties.co/' + image} className='card__img' alt='Фильм'/>
             </a>
             <div className='card__under'>
                 <button type='button' className={cardSaveBtnClassName} onClick={handleLikeClick}></button>
@@ -52,7 +55,7 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
                 <p className='card__movie-time'>{timeOnCard(movie.duration)}</p>
             </div>
             <a href={movie.trailerLink} target='_blank' rel='noreferrer'>
-                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__img' alt='Фильм'/>
+                <img src={`https://api.nomoreparties.co/` + image} className='card__img' alt='Фильм'/>
             </a>
             <div className='card__under'>
                 <button id='btn' type='button' className='card__delete-btn page__link' onClick={handleDeleteMovie}></button>
