@@ -173,7 +173,7 @@ function App() {
   }, [loggedIn]);
 
   useEffect(() => {
-    setCurrentMovies(userMovies)
+    setCurrentUserMovies(userMovies)
   }, [userMovies]);
 
   useEffect(() => {
@@ -184,6 +184,14 @@ function App() {
       if (movies.length === 0 && localSearching !== null) {setNotFoundError(true)} else {setNotFoundError(false)}
     }
   }, [movies])
+
+  useEffect(() => {
+    if (filterMovie === 'true') {
+      setFilteredMovies(true)
+    } else {
+      setFilteredMovies(false)    
+    }
+  })
 
   function useFilterMovies() {
     setFilteredMovies(!filteredMovies)
