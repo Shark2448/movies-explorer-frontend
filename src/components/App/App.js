@@ -183,7 +183,7 @@ function App() {
       setCurrentMovies(localMovies)
       if (movies.length === 0 && localSearching !== null) {setNotFoundError(true)} else {setNotFoundError(false)}
     }
-  }, [movies, localMovies, localSearching])
+  }, [movies])
 
   function useFilterMovies() {
     setFilteredMovies(!filteredMovies)
@@ -334,7 +334,6 @@ function App() {
             movies={currentUserMovies}
             userMovies={userMovies}
             isLoading={isLoading}
-            saveMovie={saveMovie}
             deleteMovie={deleteMovie}
             searchUserMovies={searchUserMovies}
             useFilterMovies={useFilterUserMovies}

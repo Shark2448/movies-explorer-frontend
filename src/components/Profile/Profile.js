@@ -7,7 +7,6 @@ import { useFormValidation } from '../FormValidation.js/FormValidation';
 function Profile({ onOpen, leave, changeUserInfo }) {
     const user = React.useContext(CurrentUserContext)
     
-    
     const { handlechangeValues, isValid, resetFormValues } = useFormValidation()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -22,7 +21,7 @@ function Profile({ onOpen, leave, changeUserInfo }) {
         } else {
             setValidName(false)
         }
-    }, [name, user.name])
+    }, [name])
     
     useEffect(() => {
         const regex = /(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)/
@@ -31,7 +30,7 @@ function Profile({ onOpen, leave, changeUserInfo }) {
         } else {
             setValidEmail(false)
         }
-    }, [email, user.email])
+    }, [email])
 
     useEffect(() => {
         setName(user.name)
@@ -67,7 +66,7 @@ function Profile({ onOpen, leave, changeUserInfo }) {
                         </div>
                         <div className='profile__case-email'>
                             <p className='profile__name-title'>E-mail</p>
-                            <input name='email' className='profile__name' value={email || ''} onChange={handleChangeEmail} minLength='2' placeholder='pochta@yandex.ru' required></input>
+                            <input type='email' name='email' className='profile__name' value={email || ''} onChange={handleChangeEmail} minLength='2' placeholder='pochta@yandex.ru' required></input>
                         </div>
                         <button type='submit' className={btnClassName} disabled={isValid && (validName || validEmail) ? false : true}>Редактировать</button>
                         <p className='profile__logoff-btn page__link' onClick={leave}>Выйти из аккаунта</p>

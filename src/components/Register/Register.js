@@ -30,7 +30,7 @@ function Register({ registration, submitError, textError }) {
         isEmailValid={isEmailValid}
         submitError={submitError}
         textError={textError} >
-            <label for='name' className='pattern__input-title'>Имя</label>
+            <label htmlFor='name' className='pattern__input-title'>Имя</label>
             <input name='name' className='pattern__input pattern__border' placeholder='Виталий' required></input>
         </Pattern>
     )

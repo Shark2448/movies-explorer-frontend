@@ -23,7 +23,7 @@ function SavedMovies({ onOpen, movies, userMovies, deleteMovie, useFilterUserMov
         <>
         <Header onOpen={onOpen}/>
         <main>
-            <SearchForm useFilterUserMovies={useFilterUserMovies} userMovies={userMovies} useFormValidation={useFormValidation} searchUserMovie={searchUserMovies} />
+            <SearchForm useFilterUserMovies={useFilterUserMovies} userMovies={userMovies} useFormValidation={useFormValidation} searchUserMovies={searchUserMovies} />
             {isLoading ? <Preloader /> : handleMoviesList()}
         </main>
         <Footer />

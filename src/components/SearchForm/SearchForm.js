@@ -33,7 +33,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
         <section className='searchForm'>
             <Route path='/movies'>
                 <form className='searchForm__form' onSubmit={handleSubmitMovies} onChange={handleChangeValues} noValidate>
-                    <input className='searchForm__input' placeholder='Фильм' defaultValue={valueSearchMovies || ''} required></input>
+                    <input name='search' className='searchForm__input' placeholder='Фильм' defaultValue={valueSearchMovies || ''} required></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>
@@ -47,7 +47,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
 
             <Route path='/saved-movies'>
             <form className='searchForm__form' onSubmit={handleSubmitUserMovies} onChange={handleChangeValues} noValidate>
-                    <input className='searchForm__input' placeholder='Фильм' required></input>
+                    <input name='search' className='searchForm__input' placeholder='Фильм' required></input>
                     <button type='submit' className='searchForm__button page__link'></button>
                 </form>
                 <div className='searchForm__case'>

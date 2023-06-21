@@ -12,9 +12,9 @@ function Pattern({ title, btnName, text, pageLink, link, children, isValid, erro
             <Link to='/' className='pattern__logo page__link' alt='Логотип'></Link>
             <h2 className='pattern__title'>{title}</h2>
             {children}
-            <label for='email' className='pattern__input-title'>E-mail</label>
+            <label htmlFor='email' className='pattern__input-title'>E-mail</label>
             <input type='email' name='email' className={emailInputClassName} placeholder='pochta@yandex.ru' minLength='2' required></input>
-            <label for='password' className='pattern__input-title'>Пароль</label>
+            <label htmlFor='password' className='pattern__input-title'>Пароль</label>
             <input type='password' name='password' className={passwordInputClassName} minLength='2' maxLength='30' required></input>
             <span className={errorClassName}>Что то пошло не так...</span>
             <div className='pattern__under'>

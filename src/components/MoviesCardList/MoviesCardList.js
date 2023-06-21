@@ -22,24 +22,24 @@ function MoviesCardList({
     const [isAmountOfMovies, setIsAmountOfMovies] = useState(amountOfMovies);
     const [needMoreMovies, setNeedMoreMovies] = useState(false)
 
-    useEffect(() => {
-        function resize() {
-            if (screenWidth >= 1280) {setIsAmountOfMovies(isAmountOfMovies + 3)}
-            if (screenWidth >= 768 && screenWidth < 1279) {setIsAmountOfMovies(isAmountOfMovies + 2)}
-            if (screenWidth <= 767) {setIsAmountOfMovies(isAmountOfMovies + 5)}
-            if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)}
-        }
-
-        if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)} else {setNeedMoreMovies(false)}
-        window.onresize = resize
-    }, [isAmountOfMovies, moviesLength, screenWidth])
-
     function handleClickMoreMovies() {
-        if (screenWidth >= 1280) { amountOfMovies = 12 };
-        if (screenWidth >= 768 && screenWidth < 1279) { amountOfMovies = 8 };
-        if (screenWidth <= 767) { amountOfMovies = 5 };
+        if (screenWidth >= 1280) {setIsAmountOfMovies(isAmountOfMovies + 3)}
+        if (screenWidth >= 768 && screenWidth < 1279) {setIsAmountOfMovies(isAmountOfMovies + 2)}
+        if (screenWidth <= 767) {setIsAmountOfMovies(isAmountOfMovies + 5)}
+        if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)}
     }
 
+    function resize() {
+        if (screenWidth >= 1280) { setIsAmountOfMovies(12) };
+        if (screenWidth >= 768 && screenWidth < 1279) { setIsAmountOfMovies(8) };
+        if (screenWidth <= 767) { setIsAmountOfMovies(5) };
+    }
+
+    useEffect(() => {
+        if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)} else {setNeedMoreMovies(false)}
+        window.onresize = resize
+    })
+    
     const btnClassName = `movies__cardList_more-movies-btn page__link ${
         needMoreMovies ? 'movies__cardList_more-movies-btn_disabled' : ' '
     }`
@@ -58,7 +58,7 @@ function MoviesCardList({
                     )}
                     )  
                 }   
-            <span className={notFoundErrorClassName}></span>
+            <span className={notFoundErrorClassName}>По данному запросу фильмов не найдено</span>
         </section>
             <section className='movies__cardList_more-movies'>
                 <button type='button' className={btnClassName} onClick={handleClickMoreMovies}></button>
@@ -71,7 +71,7 @@ function MoviesCardList({
                     <MoviesCard movie={movie} key={movie.nameRU} saveMovie={saveMovie} deleteMovie={deleteMovie} userMovies={userMovies} />
                 )) 
                 }   
-                <span className={notFoundErrorClassName}></span>
+                <span className={notFoundErrorClassName}>По данному запросу фильмов не найдено</span>
                 <section className='movies__cardList_more-movies'>
                     <button type='button' className={btnClassName} onClick={handleClickMoreMovies}></button>
                 </section>

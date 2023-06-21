@@ -20,6 +20,10 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
         }
     }
 
+    function timeOnCard(min) {
+        return min + ' ' + 'минут'
+    }
+
     const cardSaveBtnClassName = `card__save-btn page__link ${
         isLiked ? 'card__save-btn_active' : ' '
     }`
@@ -30,13 +34,13 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
         <div className='card'>
             <div className='card__upper'>
                 <h3 className='card__movie-title'>{movie.nameRU}</h3>
-                <p className='card__movie-time'>{movie.duration}</p>
+                <p className='card__movie-time'>{timeOnCard(movie.duration)}</p>
             </div>
             <a href={movie.trailerLink} target='_blank' rel='noreferrer'>
-                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__movie' alt='Фильм'/>
+                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__img' alt='Фильм'/>
             </a>
             <div className='card__under'>
-                <button id='btn' type='button' className={cardSaveBtnClassName} onClick={handleLikeClick}>Сохранить</button>
+                <button type='button' className={cardSaveBtnClassName} onClick={handleLikeClick}></button>
             </div>
         </div>
         </Route>
@@ -45,9 +49,11 @@ function MoviesCard({ movie, saveMovie, deleteMovie, userMovies }) {
         <div className='card'>
             <div className='card__upper'>
                 <h3 className='card__movie-title'>{movie.nameRU}</h3>
-                <p className='card__movie-time'>{movie.duration}</p>
+                <p className='card__movie-time'>{timeOnCard(movie.duration)}</p>
             </div>
-            <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__movie' alt='Фильм'/>
+            <a href={movie.trailerLink} target='_blank' rel='noreferrer'>
+                <img src={`https://api.nomoreparties.co/` + movie.image.url} className='card__img' alt='Фильм'/>
+            </a>
             <div className='card__under'>
                 <button id='btn' type='button' className='card__delete-btn page__link' onClick={handleDeleteMovie}></button>
             </div>

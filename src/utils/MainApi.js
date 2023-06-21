@@ -43,15 +43,15 @@ class MainApi {
         }).then(this._handleRes);
     }
 
-    getUserContent() {
+    getUserContent(token) {
         return fetch(`${BASE_URL}/users/me`, {
             headers: {...this._headers, Authorization: `Bearer ${token}`},
         }).then(this._handleRes);
     }
 
-    getUserMovies(token) {
+    getUserMovies() {
         return fetch(this._url + `/movies`, {
-            headers: {...this._headers, Authorization: `Bearer ${token}`},
+            headers: this._headers,
         }).then(this._handleRes);
     }
 
