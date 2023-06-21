@@ -81,6 +81,11 @@
     color: #FFF;
 }
 
+.profile__edit-btn_disabled {
+    background-color: #8B8B8B;
+    color: #202020;
+}
+
 .profile__logoff-btn {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;

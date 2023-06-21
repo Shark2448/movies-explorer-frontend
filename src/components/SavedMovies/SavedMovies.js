@@ -1,18 +1,30 @@
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import MoreMovies from '../MoreMovies/MoreMovies';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import './SavedMovies.css';
+import { useFormValidation } from '../FormValidation.js/FormValidation';
+import Preloader from '../Preloader/Preloader';
 
-function SavedMovies({ onOpen }) {
+function SavedMovies({ onOpen, movies, userMovies, deleteMovie, useFilterUserMovies, searchUserMovies, isLoading  }) {
+    function handleMoviesList() {
+        return (
+            <>
+            <MoviesCardList 
+            movies={movies}
+            userMovies={userMovies} 
+            deleteMovie={deleteMovie}
+            isLoading={isLoading} />
+            </>
+        )
+    }
+
     return (
         <>
         <Header onOpen={onOpen}/>
         <main>
-            <SearchForm />
-            <MoviesCardList />
-            <MoreMovies />
+            <SearchForm useFilterUserMovies={useFilterUserMovies} userMovies={userMovies} useFormValidation={useFormValidation} searchUserMovie={searchUserMovies} />
+            {isLoading ? <Preloader /> : handleMoviesList()}
         </main>
         <Footer />
         </>

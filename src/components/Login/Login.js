@@ -8,7 +8,7 @@ function Login({ authorization, submitError, textError }) {
 
     useEffect(() => {
         resetFormValues()
-    }, [])
+    }, [resetFormValues])
 
     function handleSubmit(e) {
         e.preventDefault()

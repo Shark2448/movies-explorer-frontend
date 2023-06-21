@@ -91,7 +91,7 @@ function App() {
       setLoggedIn(true);
       setTextError('')
       setErrorLogin(false)
-      history.pushState('/movies')
+      history.push('/movies')
     })
     .catch((err) => {
       console.log(err)
@@ -227,7 +227,7 @@ function App() {
 
   function deleteMovie(movie) {
     mainApi.deleteMovie(movie._id)
-    .then((res) => {
+    .then(() => {
       setUserMovies((movies) => movies.filter((i) => i._id !== movie._id))
     })
     .catch((err) => {

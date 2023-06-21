@@ -4,7 +4,6 @@ import SearchForm from '../SearchForm/SearchForm';
 import Footer from '../Footer/Footer';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
-import MoreMovies from '../MoreMovies/MoreMovies';
 
 function Movies({
     onOpen,
@@ -15,6 +14,7 @@ function Movies({
     searchMovies,
     useFilterMovies,
     isLoading,
+    notFoundError,
      }) {
         function handleMoviesList() {
             return (
@@ -26,7 +26,8 @@ function Movies({
                 deleteMovie={deleteMovie}
                 searchMovies={searchMovies}
                 useFilterMovies={useFilterMovies}
-                isLoading={isLoading} />
+                isLoading={isLoading}
+                notFoundError={notFoundError} />
                 </>
             )
         }
@@ -37,7 +38,6 @@ function Movies({
         <main>
             <SearchForm useFilterMovies={useFilterMovies} searchMovies={searchMovies} />
             {isLoading ? <Preloader /> : handleMoviesList()}
-            <MoreMovies movies={movies}/>
         </main>
         <Footer />
         </>
