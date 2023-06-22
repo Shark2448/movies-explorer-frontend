@@ -11,7 +11,3 @@ export let valueSearchMovies = localStorage.getItem('searchMovies');
 export let valueSearchUserMovies = localStorage.getItem('searchUserMovies');
 export let filterMovie = localStorage.getItem('filterMovie');
 export let filteredMovie = localStorage.getItem('filterMovie')
-
-export const screenWidth = window.screen.width;
-
-export let amountOfMovies = 8;

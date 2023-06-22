@@ -191,7 +191,7 @@ function App() {
     } else {
       setFilteredMovies(false)    
     }
-  }, [])
+  })
 
   function useFilterMovies() {
     setFilteredMovies(!filteredMovies)

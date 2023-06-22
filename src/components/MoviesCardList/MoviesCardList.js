@@ -2,7 +2,6 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { screenWidth, amountOfMovies } from '../../constants/constants';
 
 function MoviesCardList({  
     movies,
@@ -11,7 +10,9 @@ function MoviesCardList({
     deleteMovie,
     notFoundError,
 }) {
+    let amountOfMovies = 8;
     const moviesLength = movies.length
+    const screenWidth = window.screen.width;
 
     if (screenWidth >= 1280) { amountOfMovies = 12 };
     if (screenWidth >= 768 && screenWidth < 1279) { amountOfMovies = 8 };
@@ -36,7 +37,7 @@ function MoviesCardList({
     useEffect(() => {
         if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)} else {setNeedMoreMovies(false)}
         window.onresize = resize
-    }, [isAmountOfMovies, moviesLength])
+    })
     
     const btnClassName = `movies__cardList_more-movies-btn page__link ${
         needMoreMovies ? 'movies__cardList_more-movies-btn_disabled' : ' '
