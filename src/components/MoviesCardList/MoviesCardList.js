@@ -36,7 +36,7 @@ function MoviesCardList({
     useEffect(() => {
         if (isAmountOfMovies >= moviesLength) {setNeedMoreMovies(true)} else {setNeedMoreMovies(false)}
         window.onresize = resize
-    })
+    }, [isAmountOfMovies, moviesLength])
     
     const btnClassName = `movies__cardList_more-movies-btn page__link ${
         needMoreMovies ? 'movies__cardList_more-movies-btn_disabled' : ' '
