@@ -2,6 +2,7 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { screenWidth, amountOfMovies } from '../../constants/constants';
 
 function MoviesCardList({  
     movies,
@@ -10,10 +11,7 @@ function MoviesCardList({
     deleteMovie,
     notFoundError,
 }) {
-    const screenWidth = window.screen.width;
     const moviesLength = movies.length
-
-    let amountOfMovies = 8;
 
     if (screenWidth >= 1280) { amountOfMovies = 12 };
     if (screenWidth >= 768 && screenWidth < 1279) { amountOfMovies = 8 };

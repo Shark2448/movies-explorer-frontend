@@ -1,13 +1,10 @@
 import './SearchForm.css';
 import { Route } from 'react-router-dom';
 import { useFormValidation } from '../FormValidation.js/FormValidation';
-
+import { valueSearchMovies, filteredMovie } from '../../constants/constants';
 
 function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
     const { values, handleChangeValues } = useFormValidation()
-
-    let valueSearchMovies = localStorage.getItem('searchMovies');
-    let filteredMovie = localStorage.getItem('filterMovie')
 
     function handleSubmitMovies(e) {
         e.preventDefault()
