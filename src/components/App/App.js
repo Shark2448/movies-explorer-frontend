@@ -225,17 +225,21 @@ function App() {
 
     if (localMovies !== null) {
       if (filterMovie === 'true') {
-        localStorage.setItem('movies', JSON.stringify(moviesList.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase()))))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase())
+        setLocalStorageData({
+          movies: JSON.stringify(moviesList.filter(condition)),
+          filterMovie: filteredMoviesFalse 
+        })
 
         setMovies(moviesList)
-        localStorage.setItem('filterMovie', filteredMoviesFalse)
       } else {
-        localStorage.setItem('movies', JSON.stringify(moviesList.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase()) && movie.duration <= 40)))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase()) && movie.duration <= 40
+        setLocalStorageData({
+          movies: JSON.stringify(moviesList.filter(condition)),
+          filterMovie: filteredMoviesTrue
+        }) 
 
         setMovies((movies) => movies.filter((movie) => movie.duration <= 40))
-        localStorage.setItem('filterMovie', filteredMoviesTrue)
       }
     }
   }
