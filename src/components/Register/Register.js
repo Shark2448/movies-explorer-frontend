@@ -3,7 +3,7 @@ import Pattern from '../Pattern/Pattern';
 import './Register.css';
 import { useFormValidation } from '../FormValidation.js/FormValidation';
 
-function Register({ registration, submitError, textError }) {
+function Register({ handleRegistration, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function Register({ registration, submitError, textError }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        registration(values.email, values.password, values.name)
+        handleRegistration(values.email, values.password, values.name)
         resetFormValues()
     }
 

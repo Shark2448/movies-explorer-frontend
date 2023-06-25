@@ -86,7 +86,7 @@
 }
 
 .searchForm__checkbox-input:checked + .searchForm__slider {
-    background-color: #343434;
+    background-color: #2BE080;
 }
   
 .searchForm__checkbox-input:focus + .searchForm__slider {

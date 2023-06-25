@@ -15,19 +15,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProtectedRouteAuth from '../ProtectedRoute/ProtectedRouteAuth';
-import { 
-  filteredMoviesFalse,
-  filteredMoviesTrue,
-  firstLocalSearch,
-  localMovies,
-  moviesList,
-  login,
-  localSearch,
-  localSearching,
-  valueSearchMovies,
-  valueSearchUserMovies,
-  filterMovie,
- } from '../../constants/constants'
+
+const useLocalStorage = (keys) => {
+  return keys.reduce((acc, key) => {
+    acc[key] = localStorage.getItem(key)
+    return acc
+  }, {})
+}
+
+const setLocalStorageData = (data) => {
+  Object.entries(data).forEach(([key, value]) => {
+    localStorage.setItem(key, value)
+  })
+}
 
 function App() {
   const history = useHistory();
@@ -47,7 +47,34 @@ function App() {
   const [notFoundError, setNotFoundError] = useState(false);
   const [errorRegistry , setErrorRegistry] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
-  const [textError, setTextError] = useState(''); 
+  const [textError, setTextError] = useState('');
+
+  const {
+    movies: localMoviesJson, 
+    movieList: moviesListJson,
+    loggedIn: login,
+    localSearch,
+    localSearching,
+    searchMovies: valueSearchMovies,
+    searchUserMovies: valueSearchUserMovies,
+    filterMovie
+  } = useLocalStorage([
+    'movies', 
+    'movieList', 
+    'loggedIn',
+    'localSearch',
+    'localSearching',
+    'searchMovies',
+    'searchUserMovies',
+    'filterMovie',
+  ])
+
+  let localMovies = JSON.parse(localMoviesJson);
+  let moviesList = JSON.parse(moviesListJson);
+
+  const filteredMoviesFalse = false;
+  const filteredMoviesTrue = true;
+  const firstLocalSearch = true; 
   
   function openMenu() {
     setIsMenu(true)
@@ -70,10 +97,10 @@ function App() {
     }
   }, [loggedIn])
 
-  function registration(email, password, name) {
+  function handleRegistration(email, password, name) {
     mainApi.register(email, password, name)
     .then(() => {
-      authorization(email, password)
+      handleAuthorization(email, password)
       setTextError('')
       setErrorRegistry(false)
     })
@@ -92,7 +119,7 @@ function App() {
     })
   }
 
-  function authorization(email, password) {
+  function handleAuthorization(email, password) {
     mainApi.authoriz(email, password)
     .then((data) => {
       const token = localStorage.getItem('token')
@@ -217,19 +244,15 @@ function App() {
     setFilteredUserMovies(!filteredUserMovies)
 
     if (!filteredUserMovies) {
-      setCurrentUserMovies(userMovies)
-
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(valueSearchUserMovies.toLocaleLowerCase()) && movie.duration <= 40))
     } else {
-      setCurrentUserMovies(userMovies)
-
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(valueSearchUserMovies.toLocaleLowerCase())))
     }
   }
 
-  function saveMovie(movie) {
+  function handleSaveMovie(movie) {
     mainApi.likeMovie(movie)
     .then((res) => {
       setUserMovies([res, ...userMovies])
@@ -239,7 +262,7 @@ function App() {
     })
   }
 
-  function deleteMovie(movie) {
+  function handleDeleteMovie(movie) {
     mainApi.deleteMovie(movie._id)
     .then(() => {
       setUserMovies((movies) => movies.filter((i) => i._id !== movie._id))
@@ -249,29 +272,35 @@ function App() {
     })
   }
 
+  const filterMoviesByCondition = (movies, condition) => movies.filter(condition)
+
+  const setMoviesByCondition = (condition) => {
+    setMovies((movies) => {
+      const filteredMovies = filterMoviesByCondition(movies, condition)
+      setLocalStorageData({
+        movies: filteredMovies
+      })
+      return filteredMovies
+    })
+  }
+
   function searchMoviesApi(value) {
     setIsLoading(true)
     moviesApi.getMovies()
     .then((movies) => {
-      localStorage.setItem('localSearch', firstLocalSearch)
-      localStorage.setItem('movieList', JSON.stringify(movies))
-      localStorage.setItem('filterMovie', filteredMovies)
-      localStorage.setItem('movies', JSON.stringify(movies))
+      setLocalStorageData({
+        localSearch: firstLocalSearch,
+        movieList: JSON.stringify(movies),
+        filterMovie: filteredMovies,
+        movies: JSON.stringify(movies)
+      })
 
       if (filteredMovies === false) {
-        localStorage.setItem('movies', JSON.stringify(movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()))))
-
-        setMovies(movies)
-        setMovies((movies) => movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase())))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())
+        setMoviesByCondition(condition)
       } else {
-        localStorage.setItem('movies', JSON.stringify(movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()) && movie.duration <= 40)))
-
-        setMovies(movies)
-        setMovies((movies) => movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()) && movie.duration <= 40))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40
+        setMoviesByCondition(condition)
       }
       setIsSearching(true)
       localStorage.setItem('localSearching', isSearching)
@@ -287,36 +316,35 @@ function App() {
 
   function searchUserMovies(value) {
     if (filteredUserMovies) {
-      setCurrentUserMovies(userMovies)
-
       setCurrentUserMovies((movies) => movies.filter((movie) =>
-      movie.nameRU.toLowerCase().includes(value.search.toLowerCase()) && movie.duration <= 40))
+      movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40))
     } else {
-      setCurrentUserMovies(userMovies)
-
       setCurrentUserMovies((movies) => movies.filter((movie) =>
-      movie.nameRU.toLowerCase().includes(value.search.toLowerCase())))
+      movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())))
     }
   }
 
   function searchMoviesLocal(value) {
-      localStorage.setItem('filterMovie', filteredMovies)
-      localStorage.setItem('movies', JSON.stringify(moviesList))
-
+    setLocalStorageData({
+      filterMovie: filteredMovies,
+      movies: JSON.stringify(moviesList)
+    })
       if (filteredMovies === false) {
-        localStorage.setItem('movies', JSON.stringify(moviesList.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()))))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())
+        setLocalStorageData({
+          movies: JSON.stringify(moviesList.filter(condition))
+        })
 
-        setMovies(moviesList)
         setMovies((movies) => movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase())))
+        movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())))
       } else {
-        localStorage.setItem('movies', JSON.stringify(moviesList.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()) && movie.duration <= 40)))
+        const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40
+        setLocalStorageData({
+          movies: JSON.stringify(moviesList.filter(condition))
+        }) 
 
-        setMovies(moviesList)
         setMovies((movies) => movies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(value.search.toLowerCase()) && movie.duration <= 40))
+        movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40))
       }
     }
 
@@ -344,8 +372,8 @@ function App() {
             userMovies={userMovies}
             isLoading={isLoading}
             useFilterMovies={useFilterMovies}
-            saveMovie={saveMovie}
-            deleteMovie={deleteMovie}
+            handleSaveMovie={handleSaveMovie}
+            handleDeleteMovie={handleDeleteMovie}
             searchMovies={searchMovies}
             searchError={searchError}
             notFoundError={notFoundError} />
@@ -356,7 +384,7 @@ function App() {
             movies={currentUserMovies}
             userMovies={userMovies}
             isLoading={isLoading}
-            deleteMovie={deleteMovie}
+            handleDeleteMovie={handleDeleteMovie}
             searchUserMovies={searchUserMovies}
             useFilterMovies={useFilterUserMovies}
             />
@@ -369,13 +397,13 @@ function App() {
           <ProtectedRouteAuth path='/signup' 
             component={Register} 
             loggedIn={login} 
-            registration={registration} 
+            handleRegistration={handleRegistration} 
             textError={textError} 
             submitError={errorRegistry} />
           <ProtectedRouteAuth path='/signin' 
             component={Login} 
             loggedIn={login} 
-            authorization={authorization} 
+            handleAuthorization={handleAuthorization} 
             textError={textError} 
             submitError={errorLogin} />
           <Route>

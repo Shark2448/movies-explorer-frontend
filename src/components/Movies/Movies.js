@@ -9,8 +9,8 @@ function Movies({
     onOpen,
     movies,
     userMovies,
-    saveMovie,
-    deleteMovie,
+    handleSaveMovie,
+    handleDeleteMovie,
     searchMovies,
     useFilterMovies,
     isLoading,
@@ -22,8 +22,8 @@ function Movies({
                 <MoviesCardList 
                 movies={movies}
                 userMovies={userMovies}
-                saveMovie={saveMovie} 
-                deleteMovie={deleteMovie}
+                handleSaveMovie={handleSaveMovie} 
+                handleDeleteMovie={handleDeleteMovie}
                 searchMovies={searchMovies}
                 useFilterMovies={useFilterMovies}
                 isLoading={isLoading}

@@ -3,7 +3,7 @@ import Pattern from '../Pattern/Pattern';
 import './Login.css';
 import { useFormValidation } from '../FormValidation.js/FormValidation';
 
-function Login({ authorization, submitError, textError }) {
+function Login({ handleAuthorization, submitError, textError }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function Login({ authorization, submitError, textError }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        authorization(values.email, values.password)
+        handleAuthorization(values.email, values.password)
         resetFormValues()
     }
 
