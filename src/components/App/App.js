@@ -69,8 +69,8 @@ function App() {
     'filterMovie',
   ])
 
-  let localMovies = JSON.parse(localMoviesJson);
-  let moviesList = JSON.parse(moviesListJson);
+  let localMovies = localMoviesJson ? JSON.parse(localMoviesJson) : [];
+  let moviesList = moviesListJson ? JSON.parse(moviesListJson) : [];
 
   const filteredMoviesFalse = false;
   const filteredMoviesTrue = true;
@@ -208,7 +208,11 @@ function App() {
       setCurrentMovies(movies)
     } else {
       setCurrentMovies(localMovies)
-      if (movies.length === 0 && localSearching !== null) {setNotFoundError(true)} else {setNotFoundError(false)}
+      if (movies.length === 0 && localSearching !== null) {
+        setNotFoundError(true)
+      } else {
+        setNotFoundError(false)
+      }
     }
   }, [movies])
 

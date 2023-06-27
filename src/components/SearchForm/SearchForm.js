@@ -84,10 +84,7 @@ function SearchForm({ searchMovies, searchUserMovies, useFilterMovies }) {
           ></button>
         </form>
         <div className="searchForm__case">
-          <label
-            className="searchForm__switch"
-            onChange={useFilterMovies}
-          >
+          <label className="searchForm__switch" onChange={useFilterMovies}>
             <input
               type="checkbox"
               className="searchForm__checkbox searchForm__checkbox-input"
