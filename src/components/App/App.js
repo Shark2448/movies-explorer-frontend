@@ -118,8 +118,8 @@ function App() {
   function handleAuthorization(email, password) {
     mainApi.authoriz(email, password)
     .then((data) => {
-      const token = localStorage.getItem('token')
       localStorage.setItem('token', data.token)
+      const token = localStorage.getItem('token')
       mainApi.updateHeaders(token)
       localStorage.setItem('loggedIn', true)
     })

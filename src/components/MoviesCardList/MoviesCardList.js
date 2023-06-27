@@ -67,7 +67,7 @@ function MoviesCardList({
     needMoreMovies ? "movies__cardList_more-movies-btn_disabled" : " "
   }`;
   const notFoundErrorClassName = `movies__cardList_error ${
-    notFoundError ? "movies__cardList_error_active" : ""
+    notFoundError ? "movies__cardList_error_active" : " "
   }`;
 
   return (

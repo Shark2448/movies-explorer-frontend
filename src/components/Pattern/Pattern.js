@@ -60,6 +60,7 @@ function Pattern({
         maxLength="30"
         required
       ></input>
+      <span className="pattern__input-error">{textError}</span>
       <span className={errorClassName}>Что то пошло не так...</span>
       <div className="pattern__under">
         <button
