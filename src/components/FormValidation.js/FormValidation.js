@@ -14,7 +14,6 @@ export function useFormValidation() {
       
       setValues({ ...values, [name]: value })
       setErrors({ ...errors, [name]: target.validationMessage })
-      console.log(target.closest('form').checkValidity())
       setIsValid(target.closest('form').checkValidity())
       if (regex.test(values.email)) {
         setIsEmailValid(true)

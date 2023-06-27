@@ -1,18 +1,18 @@
 import "./MoviesCard.css";
 import { Route } from "react-router-dom";
 
-function MoviesCard({ movie, handleSaveMovie, deleteMovie, userMovies }) {
+function MoviesCard({ movie, handleSaveMovie, handleDeleteMovie, userMovies }) {
   const isLiked = userMovies.some((i) => i.movieId === movie.id);
 
-  function handleDeleteMovie() {
-    deleteMovie(movie);
+  function deleteMovie() {
+    handleDeleteMovie(movie);
   }
 
   function handleLikeClick() {
     if (isLiked) {
       userMovies.some((i) => {
         if (i.movieId === movie.id) {
-          deleteMovie(i);
+          handleDeleteMovie(i);
         }
       });
     } else {
@@ -73,7 +73,7 @@ function MoviesCard({ movie, handleSaveMovie, deleteMovie, userMovies }) {
               id="btn"
               type="button"
               className="card__delete-btn page__link"
-              onClick={handleDeleteMovie}
+              onClick={deleteMovie}
             ></button>
           </div>
         </div>

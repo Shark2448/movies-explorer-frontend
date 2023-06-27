@@ -6,14 +6,14 @@ import './SavedMovies.css';
 import { useFormValidation } from '../FormValidation.js/FormValidation';
 import Preloader from '../Preloader/Preloader';
 
-function SavedMovies({ onOpen, movies, userMovies, deleteMovie, useFilterUserMovies, searchUserMovies, isLoading  }) {
+function SavedMovies({ onOpen, movies, userMovies, handleDeleteMovie, useFilterUserMovies, searchUserMovies, isLoading  }) {
     function handleMoviesList() {
         return (
             <>
             <MoviesCardList 
             movies={movies}
             userMovies={userMovies} 
-            deleteMovie={deleteMovie}
+            handleDeleteMovie={handleDeleteMovie}
             isLoading={isLoading} />
             </>
         )

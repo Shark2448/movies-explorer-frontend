@@ -71,10 +71,6 @@ function App() {
 
   let localMovies = localMoviesJson ? JSON.parse(localMoviesJson) : [];
   let moviesList = moviesListJson ? JSON.parse(moviesListJson) : [];
-
-  const filteredMoviesFalse = false;
-  const filteredMoviesTrue = true;
-  const firstLocalSearch = true; 
   
   function openMenu() {
     setIsMenu(true)
@@ -232,7 +228,7 @@ function App() {
         const condition = (movie) => movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase())
         setLocalStorageData({
           movies: JSON.stringify(moviesList.filter(condition)),
-          filterMovie: filteredMoviesFalse 
+          filterMovie: false
         })
 
         setMovies(moviesList)
@@ -240,7 +236,7 @@ function App() {
         const condition = (movie) => movie.nameRU.toLowerCase().includes(valueSearchMovies.toLowerCase()) && movie.duration <= 40
         setLocalStorageData({
           movies: JSON.stringify(moviesList.filter(condition)),
-          filterMovie: filteredMoviesTrue
+          filterMovie: true
         }) 
 
         setMovies((movies) => movies.filter((movie) => movie.duration <= 40))
@@ -297,7 +293,7 @@ function App() {
     moviesApi.getMovies()
     .then((movies) => {
       setLocalStorageData({
-        localSearch: firstLocalSearch,
+        localSearch: true,
         movieList: JSON.stringify(movies),
         filterMovie: filteredMovies,
         movies: JSON.stringify(movies)
