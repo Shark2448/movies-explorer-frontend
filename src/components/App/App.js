@@ -35,6 +35,7 @@ function App() {
   const [isMenu, setIsMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [movies, setMovies] = useState([]);
@@ -48,6 +49,7 @@ function App() {
   const [errorRegistry , setErrorRegistry] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
   const [textError, setTextError] = useState('');
+
 
   const {
     movies: localMoviesJson, 
@@ -162,6 +164,9 @@ function App() {
     mainApi.changeUserInfo(email, name)
     .then((res) => {
       setCurrentUser(res)
+      setIsSuccess(true)
+      setTimeout(() => 
+      setIsSuccess(false), 4000)
     })
     .catch((err) => {
       console.log(err)
@@ -397,7 +402,8 @@ function App() {
             loggedIn={login} 
             onOpen={openMenu} 
             leave={leave} 
-            changeUserInfo={changeUserInfo} />
+            changeUserInfo={changeUserInfo}
+            isSuccess={isSuccess} />
           <ProtectedRouteAuth path='/signup' 
             component={Register} 
             loggedIn={login} 

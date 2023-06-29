@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import "./Profile.css";
 import { useFormValidation } from "../FormValidation.js/FormValidation";
 
-function Profile({ onOpen, leave, changeUserInfo }) {
+function Profile({ onOpen, leave, changeUserInfo, isSuccess }) {
   const user = React.useContext(CurrentUserContext);
 
   const { handleChangeValues, isValid, resetFormValues } = useFormValidation();
@@ -16,6 +16,9 @@ function Profile({ onOpen, leave, changeUserInfo }) {
   const btnClassName = `profile__edit-btn page__link ${
     isValid && (validName || validEmail) ? " " : "profile__edit-btn_disabled"
   }`;
+
+  const successClassName = `profile__success ${
+    isSuccess ? "profile__success_active" : " "}`
 
   useEffect(() => {
     if (user.name !== name) {
@@ -93,6 +96,7 @@ function Profile({ onOpen, leave, changeUserInfo }) {
                 required
               ></input>
             </div>
+            <span className={successClassName}>Ваши данные успешно изменены</span>
             <button
               type="submit"
               className={btnClassName}

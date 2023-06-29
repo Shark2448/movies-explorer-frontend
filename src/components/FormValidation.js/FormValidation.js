@@ -7,7 +7,7 @@ export function useFormValidation() {
     const [values, setValues] = useState({})
 
     const handleChangeValues = (e) => {
-      const regex = /(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)/
+      const regex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/
       const target = e.target
       const name = target.name
       const value = target.value
