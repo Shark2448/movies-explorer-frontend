@@ -3,12 +3,12 @@ import Pattern from '../Pattern/Pattern';
 import './Login.css';
 import { useFormValidation } from '../FormValidation.js/FormValidation';
 
-function Login({ handleAuthorization, submitError, textError }) {
+function Login({ handleAuthorization, submitError, textErrorLogin }) {
     const { values, errors, isValid, isEmailValid, handleChangeValues, resetFormValues } = useFormValidation()
 
     useEffect(() => {
         resetFormValues()
-    }, [resetFormValues])
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -29,7 +29,7 @@ function Login({ handleAuthorization, submitError, textError }) {
         isEmailValid={isEmailValid}
         errors={errors}
         submitError={submitError}
-        textError={textError} />
+        textErrorLogin={textErrorLogin} />
     )
 }
 

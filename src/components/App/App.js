@@ -48,8 +48,8 @@ function App() {
   const [notFoundError, setNotFoundError] = useState(false);
   const [errorRegistry , setErrorRegistry] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
-  const [textError, setTextError] = useState('');
-
+  const [textErrorLogin, setTextErrorLogin] = useState('');
+  const [textErrorReg, setTextErrorReg] = useState('');
 
   const {
     movies: localMoviesJson, 
@@ -99,20 +99,21 @@ function App() {
     mainApi.register(email, password, name)
     .then(() => {
       handleAuthorization(email, password)
-      setTextError('')
+      setTextErrorReg('')
       setErrorRegistry(false)
     })
     .catch((err) => {
+      
       console.log(err)
       setErrorRegistry(true)
-      if (err === 'Ошибка 400') {
-        setTextError('Введены некорректные данные')
+      if (err === 'Ошибка: 400') {
+        setTextErrorReg('Введены некорректные данные')
       }
-      if (err === 'Ошибка 409') {
-        setTextError('Данный email уже существует')
+      if (err === 'Ошибка: 409') {
+        setTextErrorReg('Данный email уже существует')
       }
-      if (err === 'Ошибка 500') {
-        setTextError('Произошла ошибка на сервере')
+      if (err === 'Ошибка: 500') {
+        setTextErrorReg('Произошла ошибка на сервере')
       }
     })
   }
@@ -127,21 +128,21 @@ function App() {
     })
     .then(() => {
       setLoggedIn(true);
-      setTextError('')
+      setTextErrorLogin('')
       setErrorLogin(false)
       history.push('/movies')
     })
     .catch((err) => {
       console.log(err)
       setErrorLogin(true)
-      if (err === 'Ошибка 400') {
-        setTextError('Введены некорректные данные')
+      if (err === 'Ошибка: 400') {
+        setTextErrorLogin('Введены некорректные данные')
       }
-      if (err === 'Ошибка 401') {
-        setTextError('Введены некорректные email или пароль')
+      if (err === 'Ошибка: 401') {
+        setTextErrorLogin('Введены некорректные email или пароль')
       }
-      if (err === 'Ошибка 500') {
-        setTextError('Произошла ошибка на сервере')
+      if (err === 'Ошибка: 500') {
+        setTextErrorLogin('Произошла ошибка на сервере')
       }
     })
   }
@@ -408,13 +409,13 @@ function App() {
             component={Register} 
             loggedIn={login} 
             handleRegistration={handleRegistration} 
-            textError={textError} 
+            textErrorReg={textErrorReg} 
             submitError={errorRegistry} />
           <ProtectedRouteAuth path='/signin' 
             component={Login} 
             loggedIn={login} 
             handleAuthorization={handleAuthorization} 
-            textError={textError} 
+            textErrorLogin={textErrorLogin} 
             submitError={errorLogin} />
           <Route>
             <ErrorNotFound />

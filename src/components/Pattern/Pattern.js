@@ -1,5 +1,5 @@
 import "./Pattern.css";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 function Pattern({
   title,
@@ -13,7 +13,8 @@ function Pattern({
   handleChangeValues,
   handleSubmit,
   submitError,
-  textError,
+  textErrorLogin,
+  textErrorReg,
 }) {
   const errorClassName = `pattern__input-error ${
     submitError ? "pattern__input-error_active" : " "
@@ -60,9 +61,10 @@ function Pattern({
         maxLength="30"
         required
       ></input>
-      <span className="pattern__input-error">{textError}</span>
       <span className={errorClassName}>Что то пошло не так...</span>
-      <div className="pattern__under">
+      <Route path='/signin'><span className="pattern__text_error">{textErrorLogin}</span></Route>
+      <Route path='/signup'><span className="pattern__text_error">{textErrorReg}</span></Route>
+      <div className="pattern__under"> 
         <button
           type="submit"
           className={btnClassName}
