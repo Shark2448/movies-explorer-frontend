@@ -8,6 +8,7 @@ function MoviesCardList({
   userMovies,
   handleSaveMovie,
   handleDeleteMovie,
+  searchError,
   notFoundError,
 }) {
   let amountOfMovies = 8;
@@ -69,6 +70,9 @@ function MoviesCardList({
   const notFoundErrorClassName = `movies__cardList_error ${
     notFoundError ? "movies__cardList_error_active" : " "
   }`;
+  const searchErrorClassName = `movies__cardList_error ${
+    searchError ? "movies__cardList_error_active" : " "
+  }`;
 
   return (
     <>
@@ -88,10 +92,11 @@ function MoviesCardList({
               />
             );
           })}
-          <span className={notFoundErrorClassName}>
-            По данному запросу фильмов не найдено
-          </span>
         </section>
+        <span className={searchErrorClassName}>Произошла ошибка</span>
+        <span className={notFoundErrorClassName}>
+          По данному запросу фильмов не найдено
+        </span>
         <section className="movies__cardList_more-movies">
           <button
             type="button"
@@ -112,6 +117,7 @@ function MoviesCardList({
               userMovies={userMovies}
             />
           ))}
+          <span className={searchErrorClassName}>Произошла ошибка</span>
           <span className={notFoundErrorClassName}>
             По данному запросу фильмов не найдено
           </span>

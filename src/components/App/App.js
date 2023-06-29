@@ -206,6 +206,8 @@ function App() {
   }, [userMovies]);
 
   useEffect(() => {
+    console.log('movies', movies)
+    console.log('localMovies', localMovies)
     if (localMovies === null) {
       setCurrentMovies(movies)
     } else {
@@ -252,6 +254,7 @@ function App() {
 
   function useFilterUserMovies() {
     setFilteredUserMovies(!filteredUserMovies)
+    console.log(movies)
 
     if (!filteredUserMovies) {
       setCurrentUserMovies((movies) => movies.filter((movie) =>
@@ -284,14 +287,12 @@ function App() {
 
   const filterMoviesByCondition = (movies, condition) => movies.filter(condition)
 
-  const setMoviesByCondition = (condition) => {
-    setMovies((movies) => {
-      const filteredMovies = filterMoviesByCondition(movies, condition)
-      setLocalStorageData({
-        movies: filteredMovies
-      })
-      return filteredMovies
+  const setMoviesByCondition = (condition, movies) => {
+    const filteredMovies = filterMoviesByCondition(movies, condition)
+    setLocalStorageData({
+      movies: JSON.stringify(filteredMovies)
     })
+    setMovies(movies)
   }
 
   function searchMoviesApi(value) {
@@ -307,10 +308,10 @@ function App() {
 
       if (filteredMovies === false) {
         const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())
-        setMoviesByCondition(condition)
+        setMoviesByCondition(condition, movies)
       } else {
         const condition = (movie) => movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40
-        setMoviesByCondition(condition)
+        setMoviesByCondition(condition, movies)
       }
       setIsSearching(true)
       localStorage.setItem('localSearching', isSearching)

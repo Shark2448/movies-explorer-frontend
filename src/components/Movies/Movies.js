@@ -14,6 +14,7 @@ function Movies({
     searchMovies,
     useFilterMovies,
     isLoading,
+    searchError,
     notFoundError,
      }) {
         function handleMoviesList() {
@@ -27,6 +28,7 @@ function Movies({
                 searchMovies={searchMovies}
                 useFilterMovies={useFilterMovies}
                 isLoading={isLoading}
+                searchError={searchError}
                 notFoundError={notFoundError} />
                 </>
             )
