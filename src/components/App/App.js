@@ -206,8 +206,6 @@ function App() {
   }, [userMovies]);
 
   useEffect(() => {
-    console.log('movies', movies)
-    console.log('localMovies', localMovies)
     if (localMovies === null) {
       setCurrentMovies(movies)
     } else {
@@ -230,6 +228,7 @@ function App() {
 
   function useFilterMovies() {
     setFilteredMovies(!filteredMovies)
+    console.log(filteredMovies)
 
     if (localMovies !== null) {
       if (filterMovie === 'true') {
@@ -254,12 +253,13 @@ function App() {
 
   function useFilterUserMovies() {
     setFilteredUserMovies(!filteredUserMovies)
-    console.log(movies)
 
     if (!filteredUserMovies) {
+      setCurrentUserMovies(userMovies)
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(valueSearchUserMovies.toLocaleLowerCase()) && movie.duration <= 40))
     } else {
+      setCurrentUserMovies(userMovies)
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(valueSearchUserMovies.toLocaleLowerCase())))
     }
@@ -327,9 +327,11 @@ function App() {
 
   function searchUserMovies(value) {
     if (filteredUserMovies) {
+      setCurrentUserMovies(userMovies)
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(value.search?.toLowerCase()) && movie.duration <= 40))
     } else {
+      setCurrentUserMovies(userMovies)
       setCurrentUserMovies((movies) => movies.filter((movie) =>
       movie.nameRU.toLowerCase().includes(value.search?.toLowerCase())))
     }
@@ -397,7 +399,7 @@ function App() {
             isLoading={isLoading}
             handleDeleteMovie={handleDeleteMovie}
             searchUserMovies={searchUserMovies}
-            useFilterMovies={useFilterUserMovies}
+            useFilterUserMovies={useFilterUserMovies}
             />
           <ProtectedRoute path='/profile'
             component={Profile}

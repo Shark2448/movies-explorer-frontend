@@ -92,11 +92,11 @@ function MoviesCardList({
               />
             );
           })}
-        </section>
-        <span className={searchErrorClassName}>Произошла ошибка</span>
         <span className={notFoundErrorClassName}>
           По данному запросу фильмов не найдено
         </span>
+        <span className={searchErrorClassName}>Произошла ошибка</span>
+        </section>
         <section className="movies__cardList_more-movies">
           <button
             type="button"
