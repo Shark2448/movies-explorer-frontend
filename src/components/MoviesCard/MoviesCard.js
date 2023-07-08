@@ -1,37 +1,85 @@
-import './MoviesCard.css';
-import Film from '../../images/Film.png';
-import { Route } from 'react-router-dom/cjs/react-router-dom.min';
+import "./MoviesCard.css";
+import { Route } from "react-router-dom";
 
-function MoviesCard() {
-    return (
-        <>
-        <Route path='/movies'>
-        <div className='card'>
-            <div className='card__upper'>
-                <h3 className='card__movie-title'>В погоне за Бенкси</h3>
-                <p className='card__movie-time'>27 минут</p>
-            </div>
-            <img src={Film} className='card__movie' alt='Фильм'/>
-            <div className='card__under'>
-                <button id='btn' type='button' className='card__save-btn page__link'>Сохранить</button>
-            </div>
-        </div>
-        </Route>
+function MoviesCard({ movie, handleSaveMovie, handleDeleteMovie, userMovies }) {
+  const isLiked = userMovies.some((i) => i.movieId === movie.id);
 
-        <Route path='/saved-movies'>
-        <div className='card'>
-            <div className='card__upper'>
-                <h3 className='card__movie-title'>В погоне за Бенкси</h3>
-                <p className='card__movie-time'>27 минут</p>
-            </div>
-            <img src={Film} className='card__movie' alt='Фильм'/>
-            <div className='card__under'>
-                <button id='btn' type='button' className='card__delete-btn page__link'></button>
-            </div>
+  function deleteMovie() {
+    handleDeleteMovie(movie);
+  }
+
+  function handleLikeClick() {
+    if (isLiked) {
+      userMovies.some((i) => {
+        if (i.movieId === movie.id) {
+          handleDeleteMovie(i);
+        }
+      });
+    } else {
+      handleSaveMovie(movie);
+    }
+  }
+
+  function timeOnCard(min) {
+    return min + " " + "минут";
+  }
+
+  const cardSaveBtnClassName = `card__save-btn page__link ${
+    isLiked ? "card__save-btn_active" : " "
+  }`;
+
+  const image = typeof movie.image === "string" ? movie.image : movie.image.url;
+
+  return (
+    <>
+      <Route path="/movies">
+        <div className="card">
+          <div className="card__upper">
+            <h3 className="card__movie-title">{movie.nameRU}</h3>
+            <p className="card__movie-time">{timeOnCard(movie.duration)}</p>
+          </div>
+          <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+            <img
+              src={"https://api.nomoreparties.co/" + image}
+              className="card__img"
+              alt="Фильм"
+            />
+          </a>
+          <div className="card__under">
+            <button
+              type="button"
+              className={cardSaveBtnClassName}
+              onClick={handleLikeClick}
+            ></button>
+          </div>
         </div>
-        </Route>
-        </>
-    )
+      </Route>
+
+      <Route path="/saved-movies">
+        <div className="card">
+          <div className="card__upper">
+            <h3 className="card__movie-title">{movie.nameRU}</h3>
+            <p className="card__movie-time">{timeOnCard(movie.duration)}</p>
+          </div>
+          <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+            <img
+              src={`https://api.nomoreparties.co/` + image}
+              className="card__img"
+              alt="Фильм"
+            />
+          </a>
+          <div className="card__under">
+            <button
+              id="btn"
+              type="button"
+              className="card__delete-btn page__link"
+              onClick={deleteMovie}
+            ></button>
+          </div>
+        </div>
+      </Route>
+    </>
+  );
 }
 
-export default MoviesCard
+export default MoviesCard;

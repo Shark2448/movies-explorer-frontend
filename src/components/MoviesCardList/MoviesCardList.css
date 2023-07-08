@@ -19,6 +19,44 @@
     }
 }
 
+.movies__cardList_error {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 11px;
+    color: #FFF;
+    text-align: center;
+    display: none;
+}
+
+.movies__cardList_error_active {
+    display: block;
+}
+
+.movies__cardList_more-movies {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto 80px;
+    
+}
+
+.movies__cardList_more-movies-btn {
+    background-image: url('../../images/moreBtn.svg');
+    width: 320px;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #202020;
+    border: none;
+    cursor: pointer;
+}
+
+.movies__cardList_more-movies-btn_disabled {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 767px) {
     .movies__cardList {
         padding: 40px 10px 30px;

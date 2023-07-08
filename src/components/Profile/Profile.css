@@ -68,6 +68,25 @@
     margin: 17px 0 0 0;
 }
 
+.profile__success {
+    position: absolute;
+    top: 300px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFF;
+    align-self: center;
+    visibility: hidden;
+}
+
+.profile__success_active {
+    visibility: visible;
+}
+
 .profile__edit-btn {
     margin: 220px 0 0 0;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -79,6 +98,11 @@
     border: none;
     background-color: #202020;
     color: #FFF;
+}
+
+.profile__edit-btn_disabled {
+    background-color: #8B8B8B;
+    color: #202020;
 }
 
 .profile__logoff-btn {
